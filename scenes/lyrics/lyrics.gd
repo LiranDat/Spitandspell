@@ -34,22 +34,28 @@ var current_word = ""
 var current_sum = 0
 var total_sum = 0
 var past_word
+var new_score
 
 func _ready() -> void:
 	past_word = preload("res://scenes/past_word/past_word.tscn")
+	new_score = preload("res://scenes/new_score/new_score.tscn")
 
 func score_letter(letter: String) -> int:
 	return abc[letter][0]
 
 func score():
+	current_sum = 0
 	for letter in current_word:
 		current_sum += score_letter(letter)
 	total_sum += current_sum
-	current_sum = 0
 	
 	var instance = past_word.instantiate()
 	instance.text = current_word
 	add_child(instance)
+	
+	var instance1 = new_score.instantiate()
+	instance1.text = "+" + str(current_sum)
+	add_child(instance1)
 	
 	all_words.append(current_word)
 	current_word = ""
@@ -57,7 +63,7 @@ func score():
 func _input(event):
 	if event.as_text() in abc and event.pressed:
 		current_word += event.as_text()
-	elif event.as_text() == "Space":
+	elif event.as_text() == "Space" and event.pressed:
 		score()
 
 func _process(delta: float) -> void:
