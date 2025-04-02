@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1x8whst05lgv"]
+
+[ext_resource type="Script" uid="uid://ch46pwnwf5xht" path="res://scenes/new_score/new_score.gd" id="1_13l2v"]
+
+[node name="new_score" type="RichTextLabel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_13l2v")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cafagrb0vw5pl"]
+
+[ext_resource type="Script" uid="uid://ddpr70s8jwaq5" path="res://scenes/lyrics/lyrics.gd" id="1_benk7"]
+
+[node name="lyrics" type="RichTextLabel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_benk7")
