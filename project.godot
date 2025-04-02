@@ -23,6 +23,9 @@ general/text_to_speech=true
 
 window/size/viewport_width=512
 window/size/viewport_height=512
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/stretch/scale=2.0
 window/stretch/scale_mode="integer"
 
 [rendering]
