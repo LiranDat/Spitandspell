@@ -4,6 +4,7 @@ extends Node2D
 
 var time = 0.0
 var tween : Tween
+var hovering : bool = false
 
 #var tooltipTween : Tween
 func _ready() -> void:
@@ -21,14 +22,21 @@ func _process(delta: float) -> void:
 	pass
 
 func appear():
+	if(tween):
+		tween.kill()
 	tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_ELASTIC)
 	self.scale = Vector2(0.5,0.5)
 	tween.tween_property(self,"scale",Vector2(1.0,1.0),1.0)
+	await tween.finished
 	pass
 
 func pop():
+	if !hovering:
+		if tween and tween.is_running():
+			tween.kill()
+	hovering = true
 	tween = get_tree().create_tween()
 	tween.set_parallel(true)
 	tween.set_ease(Tween.EASE_OUT)
@@ -43,6 +51,10 @@ func pop():
 	pass
 		
 func shrink():
+	if hovering:
+		if tween and tween.is_running():
+			tween.kill()
+	hovering = false
 	tween = get_tree().create_tween()
 	tween.set_parallel(true)
 	tween.set_ease(Tween.EASE_OUT)
@@ -61,6 +73,8 @@ func sway(delta):
 	pass
 
 func click():
+	if(tween):
+		tween.kill()
 	tween = get_tree().create_tween()
 	tween.set_parallel(false)
 	tween.set_trans(Tween.TRANS_ELASTIC)
@@ -86,4 +100,9 @@ func _on_enter_area_input_event(viewport: Node, event: InputEvent, shape_idx: in
 		if(!owned):
 			print("Buying album")
 			owned = true
+	pass # Replace with function body.
+
+
+func _on_enter_area_mouse_exited():
+	shrink()
 	pass # Replace with function body.

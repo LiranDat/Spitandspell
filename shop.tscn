@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://6ybbtdjigu8h" path="res://fonts/m6x11.ttf" id="1_viryw"]
 
 [node name="Shop" type="Node2D"]
-position = Vector2(256, 260)
+position = Vector2(177, 175)
 script = ExtResource("1_e7rdd")
 
 [node name="Visuals" type="Node2D" parent="."]
