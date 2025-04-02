@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7nwnheexrt3v"]
+
+[ext_resource type="Script" uid="uid://cynpilv0lwpeo" path="res://albumparser.gd" id="1_xgmrg"]
+
+[node name="AlbumParser" type="Node2D"]
+script = ExtResource("1_xgmrg")

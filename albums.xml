@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+    <album>
+		<id>0</id>
+		<title>Mixtape</title>
+		<description>Score +1 for each different letter.</description>
+		<price>20 $</price>
+	</album>
+</root>
