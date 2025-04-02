@@ -13,3 +13,10 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("1_benk7")
+
+[node name="timer_bar" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 6.0
+offset_right = 96.0
+offset_bottom = 9.0

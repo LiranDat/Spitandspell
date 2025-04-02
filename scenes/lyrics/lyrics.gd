@@ -35,6 +35,7 @@ var current_sum = 0
 var total_sum = 0
 var past_word
 var new_score
+var timer = 3
 
 func _ready() -> void:
 	past_word = preload("res://scenes/past_word/past_word.tscn")
@@ -86,3 +87,11 @@ func _input(event):
 
 func _process(delta: float) -> void:
 	self.text = current_word
+	
+	if timer > 0:
+		timer -= delta
+	else:
+		score()
+		timer = 3
+	
+	$timer_bar.size.x = 10 * timer
