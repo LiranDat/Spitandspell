@@ -43,19 +43,35 @@ func _ready() -> void:
 func score_letter(letter: String) -> int:
 	return abc[letter][0]
 
+func word_exists(word: String) -> bool:
+	var file = FileAccess.open("res://wordlist/wordlist-20210729.txt", FileAccess.READ)
+	var content = file.get_as_text()
+	var searchString = "\"" + word + "\""
+	if(content.findn(searchString)>0):
+		return true
+	return false
+
 func score():
 	current_sum = 0
-	for letter in current_word:
-		current_sum += score_letter(letter)
-	total_sum += current_sum
+	
+	if word_exists(current_word):
+		for letter in current_word:
+			current_sum += score_letter(letter)
+		
+		var instance1 = new_score.instantiate()
+		instance1.text = "+" + str(current_sum)
+		add_child(instance1)
+		
+		total_sum += current_sum
+		
+	else:
+		var instance1 = new_score.instantiate()
+		instance1.text = "FAIL"
+		add_child(instance1)
 	
 	var instance = past_word.instantiate()
 	instance.text = current_word
 	add_child(instance)
-	
-	var instance1 = new_score.instantiate()
-	instance1.text = "+" + str(current_sum)
-	add_child(instance1)
 	
 	all_words.append(current_word)
 	current_word = ""
