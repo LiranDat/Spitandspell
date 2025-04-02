@@ -65,6 +65,8 @@ func _input(event):
 		current_word += event.as_text()
 	elif event.as_text() == "Space" and event.pressed:
 		score()
+	elif event.as_text() == "Backspace" and event.pressed:
+		current_word = current_word.left(-1)
 
 func _process(delta: float) -> void:
 	self.text = current_word
