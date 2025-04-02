@@ -1,4 +1,10 @@
-res://tts_test.tscn
-res://tts_test.gd
-res://word_test.gd
-res://WordTest.tscn
+res://scenes/lyrics/lyrics.tscn
+res://scenes/lyrics/lyrics.gd
+res://WordListGenerator.tscn
+res://scenes/past_word/past_word.tscn
+res://scenes/past_word/past_word.gd
+res://scenes/new_score/new_score.tscn
+res://scenes/new_score/new_score.gd
+res://WordListGenerator.gd
+res://letter.tscn
+res://lyric_test.tscn

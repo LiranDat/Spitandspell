@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://cywcjn6dkw1l5"]
+
+[ext_resource type="PackedScene" uid="uid://cafagrb0vw5pl" path="res://scenes/lyrics/lyrics.tscn" id="1_nxi4q"]
+
+[node name="lyric_test" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="lyrics" parent="." instance=ExtResource("1_nxi4q")]
+layout_mode = 1
+offset_left = 150.0
+offset_top = 184.0
+offset_right = -188.0
+offset_bottom = -138.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 323.0
+offset_top = 181.0
+offset_right = 363.0
+offset_bottom = 375.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 181.0
+offset_right = 149.0
+offset_bottom = 375.0
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 376.0
+offset_right = 348.0
+offset_bottom = 414.0
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 147.0
+offset_right = 340.0
+offset_bottom = 183.0
