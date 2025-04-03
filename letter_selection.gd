@@ -35,12 +35,12 @@ var abc = { # [ Punkte, Häufigkeit ]
 
 func _ready():
 	count = letterAreaSize.x*letterAreaSize.y
-	createLetterDeck()
+	createLetterDeck(abc)
 	$LetterArea/Shape.scale = Vector2(64.,64.)*Vector2(letterAreaSize)
 	
 	pass
 
-func createLetterDeck():
+func createLetterDeck(abc):
 	var letterDeck = []
 	for letter in abc.keys():
 		#print(letter + ": count [" + str(abc[letter][1]) +"] + score["+ str(abc[letter][0])+"]")
@@ -59,11 +59,12 @@ func distributeLetters(count):
 		if(childCount <= 0):
 			return
 		var childIndex = randi_range(0,$MicPos/LetterDeck.get_child_count()-1)
-		letters.append($MicPos/LetterDeck.get_child(childIndex))
+		var letter = $MicPos/LetterDeck.get_child(childIndex)
+		letters.append(letter)
+		letter.reparent($LetterArea)
 	letters.sort_custom(lettersort)
 	for index in range(letters.size()):
 		var letter = letters[index]
-		letter.reparent($LetterArea)
 		var tween = letter.create_tween()
 		tween.set_ease(Tween.EASE_IN_OUT)
 		tween.set_trans(Tween.TRANS_ELASTIC)
@@ -76,7 +77,7 @@ func distributeLetters(count):
 	pass
 
 func lettersort(a:Letter,b:Letter):
-	return a.letter < b.letter
+	return a.letter <= b.letter
 
 func _on_timer_timeout() -> void:
 	distributeLetters(count)

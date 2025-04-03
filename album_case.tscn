@@ -15,7 +15,7 @@ uv = PackedVector2Array(69.973, 75.093, 208.213, 88.7463, 150.186, 182.613, 59.7
 
 [node name="Shadow" type="Polygon2D" parent="SignPolygon"]
 z_index = -1
-position = Vector2(0.0220994, 0.0767634)
+position = Vector2(0.0277779, 0.0263159)
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0.78558, 1, 0, 1)
 uv = PackedVector2Array(69.973, 75.093, 208.213, 88.7463, 150.186, 182.613, 59.733, 162.133)
