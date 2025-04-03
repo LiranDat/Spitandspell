@@ -1,15 +1,25 @@
-extends Node2D
+class_name Album extends Node2D
 @export var owned : bool = false
-@export var albumNumber : int = 0
+
+var albumNumber : int = 0:
+	set(value):
+		albumNumber = value
+		updateAlbumInfo()
+
+const ALBUMFILE = "res://albums.xml"
+const ALBUMATTRIBUTES = ["id","title","description","price"]
+
 
 var time = 0.0
 var tween : Tween
 var hovering : bool = false
 var currentState : bool = false
 #var tooltipTween : Tween
+	
 func _ready() -> void:
 	$Tooltip.hide()
 	appear()
+	updateAlbumInfo()
 	pass
 	
 func _process(delta: float) -> void:
@@ -17,9 +27,19 @@ func _process(delta: float) -> void:
 	if(owned):
 		$Tooltip/TooltipBox/PriceTag.hide()
 		$Tooltip/Price.hide()
+	pass
+
+func updateAlbumInfo():
+	var albumInfo = {}
+	albumInfo = parseAlbums()[albumNumber]
+	print(albumInfo)
 	$Album.frame=albumNumber
 	$Album/Shadow.frame=albumNumber
-	pass
+	#["id","title","description","price"]
+	$Tooltip/AlbumName.text = albumInfo["title"]
+	$Tooltip/AlbumDescription.text = albumInfo["description"]
+	$Tooltip/Price.text = albumInfo["price"]
+	
 
 func appear():
 	tween = get_tree().create_tween()
@@ -113,3 +133,17 @@ func _on_enter_area_input_event(viewport: Node, event: InputEvent, shape_idx: in
 
 func _on_enter_area_mouse_exited():
 	pass # Replace with function body.
+
+func parseAlbums():
+	var doc : XMLDocument
+	var albums = []
+	doc = XML.parse_file(ALBUMFILE)
+	for node in doc.root.children:
+		var album = {}
+		for part in node.children:
+			for attribute in ALBUMATTRIBUTES:
+				if(part.to_dict()["__name__"]==attribute):
+					album[attribute] = part.content
+		albums.append(album)
+	return albums
+	pass
