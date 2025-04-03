@@ -10,9 +10,12 @@ var new_score
 var timer = 1
 var fire
 
+# benötigte Punkte
+var target_score = 0
+
 # Arrangement
-var words_per_round = 2
-var rounds_per_shop = 2
+var words_per_round = 4
+var rounds_per_shop = 3
 var word_count = 0
 var round_count = 0
 
@@ -52,8 +55,7 @@ func score():
 		if current_sum > 9:
 			$ooh.play()
 			add_child(fire.instantiate())
-			
-		
+	
 	else:
 		var instance1 = new_score.instantiate()
 		instance1.text = "FAIL"
@@ -64,8 +66,6 @@ func score():
 	add_child(instance)
 	
 	DisplayServer.tts_speak(current_word, voice_id)
-	
-	$score_label.text = str(total_sum)
 	
 	word_count += 1
 	if word_count == words_per_round:
@@ -91,6 +91,7 @@ func _input(event):
 
 func _process(delta: float) -> void:
 	self.text = current_word
+	$score_label.text = str(total_sum) + " / " + str(target_score * (round_count + 1))
 	
 	if timer > 0:
 		timer -= delta

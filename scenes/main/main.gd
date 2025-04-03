@@ -29,6 +29,8 @@ var abc = { # [ Punkte, Häufigkeit ]
 	"Z": [10, 1]
 }
 
+var target_scores = [10, 20, 40, 80, 160, 320]
+var level_counter = -1
 var money = 0
 
 # Szenen
@@ -43,7 +45,10 @@ func _ready() -> void:
 	button.position.y = 300
 
 func start_lyrics():
-	add_child(lyrics.instantiate())
+	level_counter += 1
+	var level = lyrics.instantiate()
+	add_child(level)
+	level.target_score = target_scores[level_counter]
 
 func start_shop():
 	add_child(shop.instantiate())
