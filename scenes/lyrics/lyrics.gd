@@ -7,7 +7,7 @@ var current_sum = 0
 var total_sum = 0
 var past_word
 var new_score
-var timer = 3
+var timer = 1
 
 # Arrangement
 var words_per_round = 2
