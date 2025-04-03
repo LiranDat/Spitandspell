@@ -6,6 +6,8 @@ var albumNumber : int = 0:
 		albumNumber = value
 		updateAlbumInfo()
 
+var price : int = 0
+
 const ALBUMFILE = "res://albums.xml"
 const ALBUMATTRIBUTES = ["id","title","description","subdescript","price"]
 
@@ -43,6 +45,7 @@ func updateAlbumInfo():
 	$Tooltip/AlbumDescription.text = albumInfo["description"]
 	$Tooltip/AlbumDescription/AlbumSubDescription.text = albumInfo["subdescript"]
 	$Tooltip/Price.text = albumInfo["price"]+ " $"
+	self.price=albumInfo["price"]
 	pass
 
 func appear():
@@ -128,13 +131,13 @@ func _on_enter_area_input_event(viewport: Node, event: InputEvent, shape_idx: in
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			click()
-		if(!owned):
-			print("Buying album")
-			var case : AlbumCase = get_tree().get_first_node_in_group("AlbumCase")
-			if(case):
-				if(!case.isFull()):
-					case.addAlbum(self)
-					owned = true
+			if(!owned):
+				print("Buying album")
+				var case = get_tree().get_first_node_in_group("AlbumCase")
+				if(case):
+					if(!case.isFull()):
+						if(case.buyAlbum(self)):
+							owned = true
 	pass # Replace with function body.
 
 

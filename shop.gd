@@ -3,11 +3,11 @@ var time = 0.0
 var albumScene = preload("res://album.tscn")
 
 func _ready():
-	for i in range(6):
+	for i in range(3):
 		var album = albumScene.instantiate()
 		album.albumNumber=randi_range(0,5) 
 		album.updateAlbumInfo()
-		album.position = Vector2((float(i%3)-1)*80.0,float(i/3)*80.0)
+		album.position = Vector2((float(i%3)-1)*80.0,float(i/3)*80.0+40.)
 		$Albums.add_child(album)
 	pass
 
