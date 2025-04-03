@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://d14bd2ryyhrdr"]
+
+[ext_resource type="PackedScene" uid="uid://bt3pifrcmwhrx" path="res://mic.tscn" id="1_a8s43"]
+[ext_resource type="Script" uid="uid://dfchx6q4hw7ch" path="res://letter_selection.gd" id="1_bvp4e"]
+
+[node name="LetterSelection" type="Node2D"]
+script = ExtResource("1_bvp4e")
+
+[node name="MicPos" type="Node2D" parent="."]
+position = Vector2(514, 390)
+
+[node name="Mic" parent="MicPos" instance=ExtResource("1_a8s43")]
+
+[node name="LetterDeck" type="Node2D" parent="MicPos"]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

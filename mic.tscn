@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt3pifrcmwhrx"]
+
+[ext_resource type="Script" uid="uid://c5t3cao8aj1ab" path="res://mic.gd" id="1_lueau"]
+[ext_resource type="Texture2D" uid="uid://vd43sncbertf" path="res://aseprite/mic.png" id="2_g5dxv"]
+
+[node name="Mic" type="Node2D"]
+script = ExtResource("1_lueau")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_g5dxv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+position = Vector2(4, 4)
+texture = ExtResource("2_g5dxv")
