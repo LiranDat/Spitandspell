@@ -9,7 +9,6 @@ var albumNumber : int = 0:
 const ALBUMFILE = "res://albums.xml"
 const ALBUMATTRIBUTES = ["id","title","description","subdescript","price"]
 
-
 var time = 0.0
 var tween : Tween
 var hovering : bool = false
@@ -131,7 +130,10 @@ func _on_enter_area_input_event(viewport: Node, event: InputEvent, shape_idx: in
 			click()
 		if(!owned):
 			print("Buying album")
-			owned = true
+			var case : AlbumCase = get_tree().get_first_node_in_group("AlbumCase")
+			if(case):
+				case.addAlbum(self)
+				owned = true
 	pass # Replace with function body.
 
 
