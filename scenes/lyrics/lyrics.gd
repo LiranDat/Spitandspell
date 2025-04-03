@@ -9,6 +9,12 @@ var past_word
 var new_score
 var timer = 3
 
+# Arrangement
+var words_per_round = 2
+var rounds_per_shop = 2
+var word_count = 0
+var round_count = 0
+
 # TTS
 var voices = DisplayServer.tts_get_voices_for_language("en")
 var voice_id = voices[0]
@@ -52,7 +58,21 @@ func score():
 	
 	DisplayServer.tts_speak(current_word, voice_id)
 	
+	$score_label.text = str(total_sum)
+	
+	word_count += 1
+	if word_count == words_per_round:
+		round_count += 1
+		word_count = 0
+	
+	if round_count == rounds_per_shop:
+		end_round()
+	
 	current_word = ""
+
+func end_round():
+	get_parent().start_shop()
+	self.queue_free()
 
 func _input(event):
 	if event.as_text() in abc and event.pressed:
