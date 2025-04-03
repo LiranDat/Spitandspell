@@ -38,7 +38,7 @@ func updateAlbumInfo():
 	#["id","title","description","price"]
 	$Tooltip/AlbumName.text = albumInfo["title"]
 	$Tooltip/AlbumDescription.text = albumInfo["description"]
-	$Tooltip/Price.text = albumInfo["price"]
+	$Tooltip/Price.text = albumInfo["price"]+ " $"
 	
 
 func appear():
@@ -98,7 +98,6 @@ func start_tween() -> void:
 	tween = create_tween()
 
 func _on_enter_area_mouse_entered() -> void:
-	
 	$EnterArea.input_pickable = false
 	$ExitArea.input_pickable = false
 	await get_tree().create_timer(0.1)

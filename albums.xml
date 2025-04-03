@@ -4,36 +4,36 @@
 		<id>0</id>
 		<title>Golden Record</title>
 		<description>Word score x2, but -1 for each vowel.</description>
-		<price>20 $</price>
+		<price>20</price>
 	</album>
 	<album>
 		<id>1</id>
 		<title>Copy</title>
 		<description>Each time a letter is used twice, it scores 3x.</description>
-		<price>20 $</price>
+		<price>20</price>
 	</album>
 	<album>
 		<id>2</id>
 		<title>Cassette</title>
 		<description>Score x2 if word length &lt 3</description>
-		<price>20 $</price>
+		<price>20</price>
 	</album>
 	<album>
 		<id>3</id>
 		<title>Retro Vinyl</title>
 		<description>+1 for each time word has been used before.</description>
-		<price>20 $</price>
+		<price>20</price>
 	</album>
 	<album>
 		<id>4</id>
 		<title></title>
 		<description>UVWXYZ score x2 and occurence x2.</description>
-		<price>20 $</price>
+		<price>20</price>
 	</album>	
 	<album>
 		<id>5</id>
 		<title>Favorite Letter</title>
 		<description>Word score x2 if it contains letter.</description>
-		<price>20 $</price>
+		<price>20</price>
 	</album>	
 </root>
