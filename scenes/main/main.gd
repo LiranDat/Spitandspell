@@ -39,7 +39,7 @@ func _ready() -> void:
 	add_child(lyrics.instantiate())
 
 func start_shop():
-	shop.instantiate()
+	add_child(shop.instantiate())
 
 func _process(delta: float) -> void:
 	pass
