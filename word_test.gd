@@ -3,8 +3,10 @@ var word : String
 var letterScene = preload("res://letter.tscn")
 var letters : = []
 var prefixTable = {}
-const LETTERCHARACTERS = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 
+const LETTERCHARACTERS = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+const WORDFILE = "res://wordlist/wordlist-20210729.txt"
+const PREFIXFILE = "res://wordlist/prefixes_precalc.txt"
 func _ready():
 	prefixPreLoad()
 	print(prefixTable)
@@ -13,7 +15,7 @@ func _ready():
 func _process(delta):
 	if($Panel/TextEdit.text != word):
 		word = $Panel/TextEdit.text
-		var file = FileAccess.open("res://wordlist/wordlist-20210729.txt", FileAccess.READ)
+		var file = FileAccess.open(WORDFILE, FileAccess.READ)
 		var content = file.get_as_text()
 		var searchString = "\"" + word + "\""
 		var t1 = Time.get_unix_time_from_system()*1000
@@ -57,11 +59,11 @@ func getPrefixPos(word : String):
 		return prefixTable[getPrefix(word)]
 
 func prefixPreLoad():
-	prefixTable = loadDict("res://wordlist/prefixes_precalc.txt")
+	prefixTable = loadDict(PREFIXFILE)
 	pass
 
 func prefixPreCalculate():
-	var file = FileAccess.open("res://wordlist/wordlist-20210729.txt", FileAccess.READ)
+	var file = FileAccess.open(WORDFILE, FileAccess.READ)
 	var content = file.get_as_text()
 	for letter in LETTERCHARACTERS:
 		var searchString = "\"" + letter
@@ -72,11 +74,11 @@ func prefixPreCalculate():
 			searchIndex = content.findn(searchString)
 			prefixTable[letter+letter2] = searchIndex
 	print(prefixTable)
-	storeDict("res://wordlist/prefixes_precalc.txt", prefixTable)
+	storeDict(PREFIXFILE, prefixTable)
 	pass
 
 func storeDict(filePath, dict):
-	var file = FileAccess.open("res://wordlist/prefixes_precalc.txt",FileAccess.WRITE)
+	var file = FileAccess.open(filePath,FileAccess.WRITE)
 	for i in prefixTable.size():
 		file.store_line(str(prefixTable.keys()[i],":",prefixTable.values()[i],"\r").replace(" ","")) 
 	file.close()
