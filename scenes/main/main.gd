@@ -50,6 +50,7 @@ func start_lyrics():
 	add_child(level)
 	level.target_score = target_scores[level_counter]
 	$music.play()
+	$boombox.bounce()
 
 func start_shop():
 	add_child(shop.instantiate())

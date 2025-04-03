@@ -40,6 +40,10 @@ func word_exists(word: String) -> bool:
 	return false
 
 func score():
+	
+	# boombox bounce
+	$"../boombox".bounce()
+	
 	current_sum = 0
 	
 	if word_exists(current_word):
