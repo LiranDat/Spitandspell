@@ -49,6 +49,7 @@ func start_lyrics():
 	var level = lyrics.instantiate()
 	add_child(level)
 	level.target_score = target_scores[level_counter]
+	$music.play()
 
 func start_shop():
 	add_child(shop.instantiate())
