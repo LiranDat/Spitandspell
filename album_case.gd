@@ -15,6 +15,13 @@ func _process(delta: float) -> void:
 func isFull():
 	return full
 	
+func buyAlbum(album:Album):
+	if $Money.money > album.price:
+		$Money.money -= album.price
+		addAlbum(album)
+		print(albums.size())
+	pass
+	
 func addAlbum(album : Album):
 	if(full):
 		return

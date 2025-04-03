@@ -1,9 +1,9 @@
 extends Node2D
 var time = 0.0
-var money : int = 0:
+var money : int = 100:
 	set(value):
 		money = value
-		$Bill/Label.text = money
+		$Bill/Label.text = str(money)
 	
 func _process(delta: float) -> void:
 	
