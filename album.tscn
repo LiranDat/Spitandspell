@@ -50,13 +50,15 @@ z_index = 1
 clip_contents = false
 offset_left = -16.0
 offset_top = -16.0
-offset_right = 69.0
-offset_bottom = 28.0
+offset_right = 64.0
+offset_bottom = -2.0
+size_flags_horizontal = 3
 theme_override_fonts/normal_font = ExtResource("3_m6jhs")
-theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
-text = "Album"
+text = "Album Name"
+fit_content = true
 scroll_active = false
+autowrap_mode = 0
 
 [node name="AlbumDescription" type="RichTextLabel" parent="Tooltip"]
 modulate = Color(0.20871, 0.20871, 0.20871, 1)
@@ -64,14 +66,29 @@ z_index = 1
 clip_contents = false
 offset_left = -16.0
 offset_top = -6.0
-offset_right = 66.0
-offset_bottom = 17.0
+offset_right = 72.0
+offset_bottom = 22.0
 theme_override_fonts/normal_font = ExtResource("4_lmjgm")
 bbcode_enabled = true
-text = "Each e scores double
-"
+text = "A
+A"
 fit_content = true
 scroll_active = false
+autowrap_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="AlbumSubDescription" type="RichTextLabel" parent="Tooltip/AlbumDescription"]
+z_index = 1
+clip_contents = false
+offset_top = 13.0
+offset_right = 88.0
+offset_bottom = 41.0
+theme_override_fonts/normal_font = ExtResource("4_lmjgm")
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="Price" type="RichTextLabel" parent="Tooltip"]
 modulate = Color(0.20871, 0.20871, 0.20871, 1)
@@ -93,7 +110,7 @@ visible_ratio = 1.2
 [node name="TooltipBox" type="Polygon2D" parent="Tooltip"]
 position = Vector2(-24, -24)
 scale = Vector2(100, 48)
-skew = 0.0872664
+skew = 0.0872663
 color = Color(0.984314, 0.94902, 0.211765, 1)
 polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
 
@@ -103,12 +120,14 @@ position = Vector2(0.0434995, 0.0836517)
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
 
-[node name="PriceTag" type="Polygon2D" parent="Tooltip/TooltipBox"]
-position = Vector2(-0.094252, 0.376432)
+[node name="PriceTag" type="Polygon2D" parent="Tooltip"]
+position = Vector2(-35, -6.00002)
+scale = Vector2(100, 48)
+skew = 0.0872663
 color = Color(0.984314, 0.94902, 0.211765, 1)
 polygon = PackedVector2Array(0.514995, 0.836517, 0.608994, 1.17112, 1.08899, 1.17112, 0.994995, 0.836517)
 
-[node name="Shadow" type="Polygon2D" parent="Tooltip/TooltipBox/PriceTag"]
+[node name="Shadow" type="Polygon2D" parent="Tooltip/PriceTag"]
 show_behind_parent = true
 position = Vector2(0.0434995, 0.0836515)
 color = Color(0, 0, 0, 1)

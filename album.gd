@@ -7,7 +7,7 @@ var albumNumber : int = 0:
 		updateAlbumInfo()
 
 const ALBUMFILE = "res://albums.xml"
-const ALBUMATTRIBUTES = ["id","title","description","price"]
+const ALBUMATTRIBUTES = ["id","title","description","subdescript","price"]
 
 
 var time = 0.0
@@ -25,7 +25,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	sway(delta)
 	if(owned):
-		$Tooltip/TooltipBox/PriceTag.hide()
+		$Tooltip/PriceTag.hide()
 		$Tooltip/Price.hide()
 	pass
 
@@ -35,11 +35,16 @@ func updateAlbumInfo():
 	print(albumInfo)
 	$Album.frame=albumNumber
 	$Album/Shadow.frame=albumNumber
-	#["id","title","description","price"]
-	$Tooltip/AlbumName.text = albumInfo["title"]
+	#["id","title","description","subdescr","price"]
+	var albumName :String = albumInfo["title"]
+	$Tooltip/AlbumName.text = albumName
+	var textSize = max($Tooltip/AlbumName.size.x,$Tooltip/AlbumDescription.size.x)
+	if(textSize>90.0):
+		$Tooltip/TooltipBox.scale.x = (textSize+10.0)*1.1
 	$Tooltip/AlbumDescription.text = albumInfo["description"]
+	$Tooltip/AlbumDescription/AlbumSubDescription.text = albumInfo["subdescript"]
 	$Tooltip/Price.text = albumInfo["price"]+ " $"
-	
+	pass
 
 func appear():
 	tween = get_tree().create_tween()
@@ -143,6 +148,9 @@ func parseAlbums():
 			for attribute in ALBUMATTRIBUTES:
 				if(part.to_dict()["__name__"]==attribute):
 					album[attribute] = part.content
+		for attribute in ALBUMATTRIBUTES:
+			if(!album.has(attribute)):
+				album[attribute]=""
 		albums.append(album)
 	return albums
 	pass

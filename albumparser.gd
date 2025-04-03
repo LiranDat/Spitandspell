@@ -2,7 +2,7 @@
 extends Node2D
 @export_tool_button("Parse all Albums") var albumparse_action = parseAlbums
 const ALBUMFILE = "res://albums.xml"
-const ALBUMATTRIBUTES = ["id","title","description","price"]
+const ALBUMATTRIBUTES = ["id","title","description","subdescript","price"]
 
 func parseAlbums():
 	var doc : XMLDocument

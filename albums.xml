@@ -4,12 +4,14 @@
 		<id>0</id>
 		<title>Golden Record</title>
 		<description>Word score x2, but -1 for each vowel.</description>
+		<subdescript>Long descriptionislongislongislongislongislong</subdescript>
 		<price>20</price>
 	</album>
 	<album>
 		<id>1</id>
 		<title>Copy</title>
 		<description>Each time a letter is used twice, it scores 3x.</description>
+		
 		<price>20</price>
 	</album>
 	<album>
