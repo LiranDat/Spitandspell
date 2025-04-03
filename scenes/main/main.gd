@@ -37,7 +37,10 @@ var shop = preload("res://shop.tscn")
 var start_button = preload("res://scenes/start_button/start_button.tscn")
 
 func _ready() -> void:
-	add_child(start_button.instantiate())
+	var button = start_button.instantiate()
+	add_child(button)
+	button.position.x = 500
+	button.position.y = 300
 
 func start_lyrics():
 	add_child(lyrics.instantiate())

@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://gai0xjg0pvo8"]
+[gd_scene load_steps=3 format=3 uid="uid://gai0xjg0pvo8"]
 
 [ext_resource type="Script" uid="uid://cb0h1ibnx7uyq" path="res://scenes/main/main.gd" id="1_hyk8p"]
+[ext_resource type="Texture2D" uid="uid://c8fkttff1bfr6" path="res://textures/halfpipe.jpg" id="2_iuonh"]
 
 [node name="main" type="Node"]
 script = ExtResource("1_hyk8p")
+
+[node name="background" type="TextureRect" parent="."]
+offset_left = -5.00001
+offset_top = -93.0
+offset_right = 328.0
+offset_bottom = 129.0
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("2_iuonh")
