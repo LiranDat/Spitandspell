@@ -10,6 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("1_s2xdx")
+theme_override_font_sizes/normal_font_size = 50
 scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
@@ -18,13 +19,17 @@ script = ExtResource("1_benk7")
 
 [node name="timer_bar" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 55.0
-offset_top = 6.0
-offset_right = 96.0
-offset_bottom = 9.0
+offset_left = 17.0
+offset_top = 72.0
+offset_right = 250.0
+offset_bottom = 93.0
 
 [node name="score_label" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 15.0
+offset_top = 16.0
+offset_right = 255.0
+offset_bottom = 56.0
 theme_override_fonts/normal_font = ExtResource("1_s2xdx")
+theme_override_font_sizes/normal_font_size = 50
+scroll_active = false
