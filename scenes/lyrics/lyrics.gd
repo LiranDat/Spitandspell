@@ -7,7 +7,7 @@ var current_sum = 0
 var total_sum = 0
 var past_word
 var new_score
-var timer = 1
+var timer = 2.4
 var fire
 
 # benötigte Punkte
@@ -97,6 +97,6 @@ func _process(delta: float) -> void:
 		timer -= delta
 	else:
 		score()
-		timer = 3
+		timer = 2.4
 	
 	$timer_bar.size.x = 10 * timer

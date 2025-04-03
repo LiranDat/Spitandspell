@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://gai0xjg0pvo8"]
+[gd_scene load_steps=3 format=3 uid="uid://gai0xjg0pvo8"]
 
 [ext_resource type="Script" uid="uid://cb0h1ibnx7uyq" path="res://scenes/main/main.gd" id="1_hyk8p"]
+[ext_resource type="AudioStream" uid="uid://bra65x8j1ai1c" path="res://sounds/gamejam_boombap.wav" id="2_iuonh"]
 
 [node name="main" type="Node"]
 script = ExtResource("1_hyk8p")
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_iuonh")
