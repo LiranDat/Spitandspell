@@ -99,4 +99,4 @@ func _process(delta: float) -> void:
 		score()
 		timer = 2.4
 	
-	$timer_bar.size.x = 10 * timer
+	$timer_bar.value = timer

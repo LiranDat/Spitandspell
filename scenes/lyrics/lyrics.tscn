@@ -10,6 +10,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/normal_font = ExtResource("1_s2xdx")
 theme_override_font_sizes/normal_font_size = 50
 scroll_active = false
@@ -18,23 +20,26 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("1_benk7")
 
-[node name="timer_bar" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 17.0
-offset_top = 72.0
-offset_right = 250.0
-offset_bottom = 93.0
-
 [node name="score_label" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 15.0
-offset_top = 16.0
-offset_right = 255.0
-offset_bottom = 56.0
+offset_right = 1152.0
+offset_bottom = 100.0
+theme_override_constants/outline_size = 8
 theme_override_fonts/normal_font = ExtResource("1_s2xdx")
 theme_override_font_sizes/normal_font_size = 50
 text = "0/0"
 scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ooh" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_a3jdk")
+
+[node name="timer_bar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 451.0
+offset_top = 80.0
+offset_right = 701.0
+offset_bottom = 105.0
+max_value = 2.4
+step = 0.1
