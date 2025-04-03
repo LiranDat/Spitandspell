@@ -1,41 +1,23 @@
 extends RichTextLabel
 
-var abc = { # [ Punkte, Häufigkeit ]
-	"A": [1, 9],
-	"B": [3, 2],
-	"C": [3, 2],
-	"D": [2, 4],
-	"E": [1, 12],
-	"F": [4, 2],
-	"G": [2, 3],
-	"H": [4, 2],
-	"I": [1, 9],
-	"J": [8, 1],
-	"K": [5, 1],
-	"L": [1, 4],
-	"M": [3, 2],
-	"N": [1, 6],
-	"O": [1, 8],
-	"P": [3, 2],
-	"Q": [10, 1],
-	"R": [1, 6],
-	"S": [1, 4],
-	"T": [1, 6],
-	"U": [1, 4],
-	"V": [4, 2],
-	"W": [4, 2],
-	"X": [8, 1],
-	"Y": [4, 2],
-	"Z": [10, 1]
-}
+@onready var abc = get_parent().abc
 
-var all_words = []
 var current_word = ""
 var current_sum = 0
 var total_sum = 0
 var past_word
 var new_score
 var timer = 3
+
+# Arrangement
+var words_per_round = 2
+var rounds_per_shop = 2
+var word_count = 0
+var round_count = 0
+
+# TTS
+var voices = DisplayServer.tts_get_voices_for_language("en")
+var voice_id = voices[0]
 
 func _ready() -> void:
 	past_word = preload("res://scenes/past_word/past_word.tscn")
@@ -74,8 +56,23 @@ func score():
 	instance.text = current_word
 	add_child(instance)
 	
-	all_words.append(current_word)
+	DisplayServer.tts_speak(current_word, voice_id)
+	
+	$score_label.text = str(total_sum)
+	
+	word_count += 1
+	if word_count == words_per_round:
+		round_count += 1
+		word_count = 0
+	
+	if round_count == rounds_per_shop:
+		end_round()
+	
 	current_word = ""
+
+func end_round():
+	get_parent().start_shop()
+	self.queue_free()
 
 func _input(event):
 	if event.as_text() in abc and event.pressed:
