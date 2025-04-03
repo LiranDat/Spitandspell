@@ -1,8 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://cafagrb0vw5pl"]
+[gd_scene load_steps=6 format=3 uid="uid://cafagrb0vw5pl"]
 
 [ext_resource type="Script" uid="uid://ddpr70s8jwaq5" path="res://scenes/lyrics/lyrics.gd" id="1_benk7"]
 [ext_resource type="FontFile" uid="uid://6ybbtdjigu8h" path="res://fonts/m6x11.ttf" id="1_s2xdx"]
 [ext_resource type="AudioStream" uid="uid://cq5daor6swjwj" path="res://sounds/ooh.wav" id="3_a3jdk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a3jdk"]
+bg_color = Color(1, 0.5, 0.5, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_146f6"]
+bg_color = Color(1, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
 
 [node name="lyrics" type="RichTextLabel"]
 anchors_preset = 15
@@ -35,11 +51,14 @@ vertical_alignment = 1
 [node name="ooh" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_a3jdk")
 
-[node name="timer_bar" type="TextureProgressBar" parent="."]
+[node name="timer_bar" type="ProgressBar" parent="."]
 layout_mode = 0
 offset_left = 451.0
 offset_top = 80.0
 offset_right = 701.0
-offset_bottom = 105.0
+offset_bottom = 107.0
+theme_override_styles/background = SubResource("StyleBoxFlat_a3jdk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_146f6")
 max_value = 2.4
 step = 0.1
+show_percentage = false
