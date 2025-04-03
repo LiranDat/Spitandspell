@@ -39,7 +39,7 @@ visible_characters = 1
 
 [node name="Shadow" type="Sprite2D" parent="Letter"]
 modulate = Color(0, 0, 0, 1)
-z_index = -1
+show_behind_parent = true
 position = Vector2(4, 4)
 texture = ExtResource("1_r6swm")
 

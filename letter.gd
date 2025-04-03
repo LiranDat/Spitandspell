@@ -1,4 +1,4 @@
-extends Node2D
+class_name Letter extends Node2D
 var time = 0.0
 var spawn = true
 @export var letter : String = "A"
