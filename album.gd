@@ -37,7 +37,7 @@ func updateAlbumInfo():
 	#["id","title","description","subdescr","price"]
 	var albumName :String = albumInfo["title"]
 	$Tooltip/AlbumName.text = albumName
-	var textSize = max($Tooltip/AlbumName.size.x,$Tooltip/AlbumDescription.size.x)
+	var textSize = max($Tooltip/AlbumName.size.x,$Tooltip/AlbumDescription.size.x,$Tooltip/AlbumDescription/AlbumSubDescription.size.x)
 	if(textSize>90.0):
 		$Tooltip/TooltipBox.scale.x = (textSize+10.0)*1.1
 	$Tooltip/AlbumDescription.text = albumInfo["description"]
@@ -132,8 +132,9 @@ func _on_enter_area_input_event(viewport: Node, event: InputEvent, shape_idx: in
 			print("Buying album")
 			var case : AlbumCase = get_tree().get_first_node_in_group("AlbumCase")
 			if(case):
-				case.addAlbum(self)
-				owned = true
+				if(!case.isFull()):
+					case.addAlbum(self)
+					owned = true
 	pass # Replace with function body.
 
 

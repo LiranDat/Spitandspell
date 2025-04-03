@@ -27,6 +27,10 @@ window/stretch/aspect="expand"
 window/stretch/scale=1.5
 window/stretch/scale_mode="integer"
 
+[global_group]
+
+AlbumCase=""
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
