@@ -4,6 +4,7 @@ var albumScene = preload("res://album.tscn")
 func _ready():
 	for i in range(6):
 		var album = albumScene.instantiate()
+		album.albumNumber = randi_range(0,3) 
 		album.position = Vector2((float(i%3)-1)*80.0,float(i/3)*80.0)
 		$Albums.add_child(album)
 	pass
