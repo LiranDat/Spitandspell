@@ -8,10 +8,11 @@ var total_sum = 0
 var past_word
 var new_score
 var timer = 1
+var fire
 
 # Arrangement
-var words_per_round = 2
-var rounds_per_shop = 2
+var words_per_round = 4
+var rounds_per_shop = 3
 var word_count = 0
 var round_count = 0
 
@@ -22,6 +23,7 @@ var voice_id = voices[0]
 func _ready() -> void:
 	past_word = preload("res://scenes/past_word/past_word.tscn")
 	new_score = preload("res://scenes/new_score/new_score.tscn")
+	fire = preload("res://scenes/fire/fire.tscn")
 
 func score_letter(letter: String) -> int:
 	return abc[letter][0]
@@ -46,6 +48,11 @@ func score():
 		add_child(instance1)
 		
 		total_sum += current_sum
+		
+		if current_sum > 9:
+			$ooh.play()
+			add_child(fire.instantiate())
+			
 		
 	else:
 		var instance1 = new_score.instantiate()

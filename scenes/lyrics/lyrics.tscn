@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cafagrb0vw5pl"]
+[gd_scene load_steps=4 format=3 uid="uid://cafagrb0vw5pl"]
 
 [ext_resource type="Script" uid="uid://ddpr70s8jwaq5" path="res://scenes/lyrics/lyrics.gd" id="1_benk7"]
 [ext_resource type="FontFile" uid="uid://6ybbtdjigu8h" path="res://fonts/m6x11.ttf" id="1_s2xdx"]
+[ext_resource type="AudioStream" uid="uid://cq5daor6swjwj" path="res://sounds/ooh.wav" id="3_a3jdk"]
 
 [node name="lyrics" type="RichTextLabel"]
 anchors_preset = 15
@@ -33,3 +34,6 @@ offset_bottom = 56.0
 theme_override_fonts/normal_font = ExtResource("1_s2xdx")
 theme_override_font_sizes/normal_font_size = 50
 scroll_active = false
+
+[node name="ooh" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_a3jdk")

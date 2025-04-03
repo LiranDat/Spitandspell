@@ -34,8 +34,12 @@ var money = 0
 # Szenen
 var lyrics = preload("res://scenes/lyrics/lyrics.tscn")
 var shop = preload("res://shop.tscn")
+var start_button = preload("res://scenes/start_button/start_button.tscn")
 
 func _ready() -> void:
+	add_child(start_button.instantiate())
+
+func start_lyrics():
 	add_child(lyrics.instantiate())
 
 func start_shop():

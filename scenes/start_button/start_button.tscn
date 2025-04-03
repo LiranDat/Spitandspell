@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ieudgb5wt3tg"]
+
+[ext_resource type="FontFile" uid="uid://6ybbtdjigu8h" path="res://fonts/m6x11.ttf" id="1_vji3x"]
+[ext_resource type="Script" uid="uid://bqfpcdeojmriu" path="res://scenes/start_button/start_button.gd" id="2_50c52"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vji3x"]
+bg_color = Color(0.6, 0, 0, 1)
+
+[node name="start_button" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -972.0
+offset_bottom = -548.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_vji3x")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_vji3x")
+text = "START?"
+script = ExtResource("2_50c52")

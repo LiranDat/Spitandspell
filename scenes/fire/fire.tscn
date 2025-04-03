@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://im1as87sa4mh"]
+
+[ext_resource type="Texture2D" uid="uid://d3eeaxsrdt2pa" path="res://textures/fire.png" id="1_q881c"]
+[ext_resource type="Script" uid="uid://dv3j0t5415q61" path="res://scenes/fire/fire.gd" id="2_86rjs"]
+
+[node name="fire" type="TextureRect"]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_q881c")
+script = ExtResource("2_86rjs")
