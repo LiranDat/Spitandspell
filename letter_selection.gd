@@ -61,7 +61,7 @@ func distributeLetters(count):
 		var tween = letter.create_tween()
 		tween.set_ease(Tween.EASE_OUT)
 		tween.set_trans(Tween.TRANS_ELASTIC)
-		tween.tween_property(letter,"position",Vector2(64.0*float(index%letterAreaSize.x),64.0*float(index/letterAreaSize.y)),1.0)
+		tween.tween_property(letter,"position",Vector2(64.0*float(index%letterAreaSize.x),64.0*float(int(index/letterAreaSize.y))),1.0)
 		letter.show()
 		$MicPos/Mic.pop()
 		await get_tree().create_timer(0.2).timeout
