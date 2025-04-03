@@ -2,13 +2,16 @@ extends RichTextLabel
 
 @onready var abc = get_parent().abc
 
-var all_words = []
 var current_word = ""
 var current_sum = 0
 var total_sum = 0
 var past_word
 var new_score
 var timer = 3
+
+# TTS
+var voices = DisplayServer.tts_get_voices_for_language("en")
+var voice_id = voices[0]
 
 func _ready() -> void:
 	past_word = preload("res://scenes/past_word/past_word.tscn")
@@ -47,7 +50,8 @@ func score():
 	instance.text = current_word
 	add_child(instance)
 	
-	all_words.append(current_word)
+	DisplayServer.tts_speak(current_word, voice_id)
+	
 	current_word = ""
 
 func _input(event):

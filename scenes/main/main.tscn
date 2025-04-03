@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://gai0xjg0pvo8"]
+[gd_scene load_steps=2 format=3 uid="uid://gai0xjg0pvo8"]
 
-[ext_resource type="PackedScene" uid="uid://cafagrb0vw5pl" path="res://scenes/lyrics/lyrics.tscn" id="1_hyk8p"]
 [ext_resource type="Script" uid="uid://b5ohtt11sy0jr" path="res://scenes/main/main.gd" id="1_iuonh"]
 
 [node name="main" type="Control"]
@@ -11,13 +10,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_iuonh")
-
-[node name="lyrics" parent="." instance=ExtResource("1_hyk8p")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 1152.0
-offset_bottom = 648.0
-grow_horizontal = 1
-grow_vertical = 1

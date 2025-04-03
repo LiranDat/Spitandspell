@@ -31,5 +31,11 @@ var abc = { # [ Punkte, Häufigkeit ]
 
 var money = 0
 
+# Szenen
+var lyrics = preload("res://scenes/lyrics/lyrics.tscn")
+
+func _ready() -> void:
+	add_child(lyrics.instantiate())
+
 func _process(delta: float) -> void:
 	pass
