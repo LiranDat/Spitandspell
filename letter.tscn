@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://74i2jjbg5f4n"]
+[gd_scene load_steps=6 format=3 uid="uid://74i2jjbg5f4n"]
 
 [ext_resource type="Texture2D" uid="uid://biyccwdqgqcio" path="res://aseprite/letter.png" id="1_r6swm"]
 [ext_resource type="Script" uid="uid://bal7p1pws4xkx" path="res://letter.gd" id="2_5gbsb"]
 [ext_resource type="FontFile" uid="uid://d3cgo0kxecwrs" path="res://fonts/m5x7.ttf" id="3_57kop"]
 [ext_resource type="FontFile" uid="uid://8ascrcyxqol2" path="res://fonts/m3x6.ttf" id="4_kv2n4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kv2n4"]
+size = Vector2(32, 32)
 
 [node name="Letter" type="Sprite2D"]
 texture = ExtResource("1_r6swm")
@@ -38,3 +41,10 @@ modulate = Color(0, 0, 0, 1)
 z_index = -1
 position = Vector2(4, 4)
 texture = ExtResource("1_r6swm")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_kv2n4")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

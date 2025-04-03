@@ -87,7 +87,7 @@ text = "100 $"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 2
-visible_characters = 5
+visible_characters = 1
 visible_ratio = 0.357143
 
 [node name="TooltipBox" type="Polygon2D" parent="Tooltip"]

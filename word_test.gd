@@ -2,19 +2,37 @@ extends Control
 var word : String
 var letterScene = preload("res://letter.tscn")
 var letters : = []
+var prefixTable = {}
+const LETTERCHARACTERS = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 
+func _ready():
+	prefixPreLoad()
+	print(prefixTable)
+	pass
+	
 func _process(delta):
 	if($Panel/TextEdit.text != word):
 		word = $Panel/TextEdit.text
 		var file = FileAccess.open("res://wordlist/wordlist-20210729.txt", FileAccess.READ)
 		var content = file.get_as_text()
 		var searchString = "\"" + word + "\""
-		if(content.findn(searchString)>0):
-			print("Word found: " + word + " " + str(content.find(word)))
+		var t1 = Time.get_unix_time_from_system()*1000
+		var prefixPos = getPrefixPos(word)
+		var searchIndex = -1
+		if(prefixPos):
+			searchIndex = content.findn(searchString,getPrefixPos(word))
+		var t2 = Time.get_unix_time_from_system()*1000
+		var tElapsed = t2-t1
+		print("Time for search: " + str(tElapsed)+ "ms")
+		
+		if(searchIndex>0):
+			print("Word found: " + word + " " + str(searchIndex))
 			$Panel/RichTextLabel.text = word.to_upper()
-			$Panel.get_child(3).queue_free()
+			if($Panel/Letters.get_child_count()>0):
+				$Panel/Letters.get_child(0).queue_free()
 			var WordNode = Node2D.new()
-			$Panel.add_child(WordNode)
+			$Panel/Letters.add_child(WordNode)
+			t2 = Time.get_unix_time_from_system()
 			for i in word.length():
 				var letterNode = letterScene.instantiate()
 				letterNode.letter = word[i].to_upper()
@@ -22,7 +40,55 @@ func _process(delta):
 				letterNode.score = "1"
 				WordNode.add_child(letterNode)
 				letters.append(letterNode)
-			var voices = DisplayServer.tts_get_voices_for_language("en")
-			var voice_id = voices[0]
-			DisplayServer.tts_speak(word, voice_id)
 	pass
+
+#func findWord(word : String):
+	#if(word.length()):
+		
+	
+func getPrefix(word : String):
+	if(word.length()):
+		var l = min(2,word.length())
+		return word.substr(0,l)
+	return -1
+
+func getPrefixPos(word : String):
+	if(word.length()):
+		return prefixTable[getPrefix(word)]
+
+func prefixPreLoad():
+	prefixTable = loadDict("res://wordlist/prefixes_precalc.txt")
+	pass
+
+func prefixPreCalculate():
+	var file = FileAccess.open("res://wordlist/wordlist-20210729.txt", FileAccess.READ)
+	var content = file.get_as_text()
+	for letter in LETTERCHARACTERS:
+		var searchString = "\"" + letter
+		var searchIndex = content.findn(searchString)
+		prefixTable[letter] = searchIndex
+		for letter2 in LETTERCHARACTERS:
+			searchString = "\"" + letter + letter2
+			searchIndex = content.findn(searchString)
+			prefixTable[letter+letter2] = searchIndex
+	print(prefixTable)
+	storeDict("res://wordlist/prefixes_precalc.txt", prefixTable)
+	pass
+
+func storeDict(filePath, dict):
+	var file = FileAccess.open("res://wordlist/prefixes_precalc.txt",FileAccess.WRITE)
+	for i in prefixTable.size():
+		file.store_line(str(prefixTable.keys()[i],":",prefixTable.values()[i],"\r").replace(" ","")) 
+	file.close()
+	pass
+	
+func loadDict(filePath):
+	var file = FileAccess.open(filePath, FileAccess.READ)
+	var content = {}
+	for i in file.get_as_text().count(":"):
+		var line = file.get_line()
+		var key = line.split(":")[0]
+		var value = line.split(":")[1]
+		content[key] = int(value)
+	file.close()
+	return content
