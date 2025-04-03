@@ -1,10 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://b56orn6gpj15h"]
+[gd_scene load_steps=4 format=3 uid="uid://b56orn6gpj15h"]
 
 [ext_resource type="Script" uid="uid://ckegko7w4tsuh" path="res://album_case.gd" id="1_ea5sd"]
 [ext_resource type="FontFile" uid="uid://6ybbtdjigu8h" path="res://fonts/m6x11.ttf" id="2_1rb7b"]
+[ext_resource type="PackedScene" uid="uid://77lr31d7he8j" path="res://money.tscn" id="2_k6kkq"]
 
 [node name="AlbumCase" type="Node2D" groups=["AlbumCase"]]
 script = ExtResource("1_ea5sd")
+
+[node name="Money" parent="." instance=ExtResource("2_k6kkq")]
+z_index = 2
+position = Vector2(72, 72)
 
 [node name="SignPolygon" type="Polygon2D" parent="."]
 position = Vector2(-76, -80)

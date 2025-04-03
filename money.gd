@@ -1,6 +1,5 @@
 extends Node2D
 var time = 0.0
-
 var money : int = 0:
 	set(value):
 		money = value
