@@ -11,8 +11,8 @@ var timer = 1
 var fire
 
 # Arrangement
-var words_per_round = 4
-var rounds_per_shop = 3
+var words_per_round = 2
+var rounds_per_shop = 2
 var word_count = 0
 var round_count = 0
 
