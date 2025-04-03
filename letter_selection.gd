@@ -1,6 +1,7 @@
 extends Node2D
 
 var letterScene = preload("res://letter.tscn")
+@export var letterAreaSize : Vector2i = Vector2i(5,2)
 
 var abc = { # [ Punkte, Häufigkeit ]
 	"A": [1, 9],
@@ -33,6 +34,8 @@ var abc = { # [ Punkte, Häufigkeit ]
 
 func _ready():
 	createLetterDeck()
+	$LetterArea/Shape.scale = Vector2(64.,64.)*Vector2(letterAreaSize)
+	
 	pass
 
 func createLetterDeck():
@@ -54,14 +57,14 @@ func distributeLetters(count):
 			return
 		var childIndex = randi_range(0,$MicPos/LetterDeck.get_child_count()-1)
 		var letter = $MicPos/LetterDeck.get_child(childIndex)
-		letter.reparent(self)
+		letter.reparent($LetterArea)
 		var tween = letter.create_tween()
 		tween.set_ease(Tween.EASE_OUT)
 		tween.set_trans(Tween.TRANS_ELASTIC)
-		tween.tween_property(letter,"global_position",Vector2(64.0*index+64.,128.0),1.0)
+		tween.tween_property(letter,"position",Vector2(64.0*float(index%letterAreaSize.x),64.0*float(index/letterAreaSize.y)),1.0)
 		letter.show()
 		$MicPos/Mic.pop()
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(0.2).timeout
 	pass
 
 

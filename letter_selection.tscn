@@ -7,11 +7,20 @@
 script = ExtResource("1_bvp4e")
 
 [node name="MicPos" type="Node2D" parent="."]
-position = Vector2(514, 390)
+position = Vector2(151, 128)
 
 [node name="Mic" parent="MicPos" instance=ExtResource("1_a8s43")]
 
 [node name="LetterDeck" type="Node2D" parent="MicPos"]
+
+[node name="LetterArea" type="Node2D" parent="."]
+z_index = -1
+z_as_relative = false
+position = Vector2(318, 64)
+
+[node name="Shape" type="Polygon2D" parent="LetterArea"]
+scale = Vector2(342.638, 163.09)
+polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
