@@ -5,6 +5,7 @@
 
 [node name="LetterSelection" type="Node2D"]
 script = ExtResource("1_bvp4e")
+letterAreaSize = Vector2i(8, 2)
 
 [node name="MicPos" type="Node2D" parent="."]
 position = Vector2(151, 128)
