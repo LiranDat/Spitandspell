@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://do4tiutb84hy"]
+[gd_scene load_steps=3 format=3 uid="uid://do4tiutb84hy"]
 
 [ext_resource type="Script" uid="uid://dgj5g4mry26eh" path="res://scenes/past_word/past_word.gd" id="1_6kcfk"]
+[ext_resource type="FontFile" uid="uid://6ybbtdjigu8h" path="res://fonts/m6x11.ttf" id="1_w0txt"]
 
 [node name="past_word" type="RichTextLabel"]
 anchors_preset = 15
@@ -8,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_w0txt")
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
