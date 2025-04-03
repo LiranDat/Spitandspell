@@ -5,7 +5,7 @@ extends Node2D
 var time = 0.0
 var tween : Tween
 var hovering : bool = false
-
+var currentState : bool = false
 #var tooltipTween : Tween
 func _ready() -> void:
 	$Tooltip.hide()
@@ -22,8 +22,6 @@ func _process(delta: float) -> void:
 	pass
 
 func appear():
-	if(tween):
-		tween.kill()
 	tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_ELASTIC)
@@ -33,11 +31,6 @@ func appear():
 	pass
 
 func pop():
-	if !hovering:
-		if tween and tween.is_running():
-			tween.kill()
-	hovering = true
-	tween = get_tree().create_tween()
 	tween.set_parallel(true)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_ELASTIC)
@@ -45,17 +38,11 @@ func pop():
 	tween.parallel().tween_property($Album,"scale",Vector2(1.2,1.2),1.0)
 	$Tooltip.show()
 	$Tooltip.scale = Vector2(0.5,0.5)
-	$Tooltip.position.x = 0.0
 	tween.parallel().tween_property($Tooltip,"position:x",48.0,1.0)
 	tween.parallel().tween_property($Tooltip,"scale",Vector2(1.0,1.0),1.0)
 	pass
 		
 func shrink():
-	if hovering:
-		if tween and tween.is_running():
-			tween.kill()
-	hovering = false
-	tween = get_tree().create_tween()
 	tween.set_parallel(true)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_ELASTIC)
@@ -84,13 +71,34 @@ func click():
 	print("click")
 	pass
 
+func start_tween() -> void:
+	if tween:
+		tween.kill()
+	
+	tween = create_tween()
+
 func _on_enter_area_mouse_entered() -> void:
+	
+	$EnterArea.input_pickable = false
+	$ExitArea.input_pickable = false
+	await get_tree().create_timer(0.1)
+	start_tween()
 	pop()
+	await get_tree().create_timer(0.1)
+	$EnterArea.input_pickable = true
+	$ExitArea.input_pickable = true
 	pass # Replace with function body.
 
 
 func _on_exit_area_mouse_exited() -> void:
+	$EnterArea.input_pickable = false
+	$ExitArea.input_pickable = false
+	await get_tree().create_timer(0.1)
+	start_tween()
 	shrink()
+	await get_tree().create_timer(0.1)
+	$EnterArea.input_pickable = true
+	$ExitArea.input_pickable = true
 	pass # Replace with function body.
 
 func _on_enter_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
@@ -104,5 +112,4 @@ func _on_enter_area_input_event(viewport: Node, event: InputEvent, shape_idx: in
 
 
 func _on_enter_area_mouse_exited():
-	shrink()
 	pass # Replace with function body.

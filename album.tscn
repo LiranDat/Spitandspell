@@ -6,18 +6,22 @@
 [ext_resource type="FontFile" uid="uid://8ascrcyxqol2" path="res://fonts/m3x6.ttf" id="4_lmjgm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uur71"]
-size = Vector2(64, 64)
+size = Vector2(48, 48)
 
 [node name="AlbumRoot" type="Node2D"]
 position = Vector2(127, 150)
 script = ExtResource("2_uur71")
 
 [node name="EnterArea" type="Area2D" parent="."]
+z_index = 100
+z_as_relative = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnterArea"]
 shape = SubResource("RectangleShape2D_uur71")
 
 [node name="ExitArea" type="Area2D" parent="."]
+z_index = 100
+z_as_relative = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea"]
 shape = SubResource("RectangleShape2D_uur71")
@@ -41,36 +45,50 @@ z_index = 1
 position = Vector2(60, 0)
 
 [node name="AlbumName" type="RichTextLabel" parent="Tooltip"]
+modulate = Color(0.20871, 0.20871, 0.20871, 1)
 z_index = 1
+clip_contents = false
 offset_left = -16.0
-offset_top = -20.0
+offset_top = -16.0
 offset_right = 69.0
-offset_bottom = 24.0
+offset_bottom = 28.0
 theme_override_fonts/normal_font = ExtResource("3_m6jhs")
 theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
 text = "Album"
+scroll_active = false
 
-[node name="AlbumDescription" type="Label" parent="Tooltip"]
+[node name="AlbumDescription" type="RichTextLabel" parent="Tooltip"]
+modulate = Color(0.20871, 0.20871, 0.20871, 1)
 z_index = 1
+clip_contents = false
 offset_left = -16.0
-offset_top = -3.0
+offset_top = -6.0
 offset_right = 66.0
-offset_bottom = 20.0
-theme_override_fonts/font = ExtResource("4_lmjgm")
-theme_override_font_sizes/font_size = 16
-text = "Each e scores double"
+offset_bottom = 17.0
+theme_override_fonts/normal_font = ExtResource("4_lmjgm")
+bbcode_enabled = true
+text = "Each e scores double
+"
+fit_content = true
+scroll_active = false
 
-[node name="Price" type="Label" parent="Tooltip"]
+[node name="Price" type="RichTextLabel" parent="Tooltip"]
+modulate = Color(0.20871, 0.20871, 0.20871, 1)
 z_index = 1
+clip_contents = false
 offset_left = 20.0
-offset_top = 36.0
+offset_top = 37.0
 offset_right = 60.0
-offset_bottom = 62.0
-theme_override_fonts/font = ExtResource("3_m6jhs")
-theme_override_font_sizes/font_size = 16
-text = "100 €"
+offset_bottom = 63.0
+theme_override_fonts/normal_font = ExtResource("3_m6jhs")
+bbcode_enabled = true
+text = "100 $"
+fit_content = true
+scroll_active = false
 horizontal_alignment = 2
 visible_characters = 5
+visible_ratio = 0.357143
 
 [node name="TooltipBox" type="Polygon2D" parent="Tooltip"]
 position = Vector2(-24, -24)
