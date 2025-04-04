@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://chp6di0eq0dhd"]
+
+[ext_resource type="Script" uid="uid://dhj8g1wbh48yb" path="res://WordListGenerator.gd" id="1_xh6hk"]
+
+[node name="WordListGenerator" type="Node"]
+script = ExtResource("1_xh6hk")

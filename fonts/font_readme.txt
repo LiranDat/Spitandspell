@@ -1,0 +1,1 @@
+Fonts by Daniel Linssen (https://managore.itch.io/)
