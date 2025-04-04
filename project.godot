@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="spitandspell"
+run/main_scene="uid://cmc88a1l4judd"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

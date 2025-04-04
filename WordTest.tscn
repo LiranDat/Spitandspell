@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmc88a1l4judd"]
+
+[ext_resource type="Script" uid="uid://cakbqqduqtwqp" path="res://word_test.gd" id="1_u4q7v"]
+[ext_resource type="FontFile" uid="uid://d3cgo0kxecwrs" path="res://fonts/m5x7.ttf" id="2_llqth"]
+
+[node name="WordTest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u4q7v")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 217.0
+offset_top = 78.0
+offset_right = 660.0
+offset_bottom = 343.0
+
+[node name="TextEdit" type="TextEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 46.0
+offset_right = 364.0
+offset_bottom = 96.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 61.0
+offset_top = 167.0
+offset_right = 299.0
+offset_bottom = 222.0
+theme_override_fonts/normal_font = ExtResource("2_llqth")
+theme_override_font_sizes/normal_font_size = 64
+text = "word"
