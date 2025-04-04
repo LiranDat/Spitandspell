@@ -1,6 +1,6 @@
 extends Node
 
-var target_scores = [10, 20, 40, 80, 160, 320, 640, 1280, 2560, 5120]
+var target_scores = [10, 20, 40, 80, 160, 320, 640, 1280]
 var level_counter = -1
 
 # Szenen
@@ -34,7 +34,7 @@ func win():
 
 func start_shop():
 	
-	if level_counter == 9:
+	if level_counter == 7:
 		win()
 		return
 	
