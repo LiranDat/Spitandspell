@@ -17,6 +17,7 @@ func _ready() -> void:
 
 func start_lyrics():
 	$info.visible = false
+	$title.visible = false
 	level_counter += 1
 	var level = lyrics.instantiate()
 	add_child(level)
