@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://drpkjcye8s7dv"]
+[gd_scene load_steps=4 format=3 uid="uid://drpkjcye8s7dv"]
 
 [ext_resource type="Script" uid="uid://bv1k157tfkmi0" path="res://shop.gd" id="1_e7rdd"]
 [ext_resource type="FontFile" uid="uid://6ybbtdjigu8h" path="res://fonts/m6x11.ttf" id="1_viryw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7rdd"]
+size = Vector2(160, 48)
 
 [node name="Shop" type="Node2D"]
 position = Vector2(177, 175)
@@ -133,3 +136,40 @@ polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
 uv = PackedVector2Array(69.973, 75.093, 208.213, 88.7463, 150.186, 182.613, 59.733, 162.133)
 
 [node name="Albums" type="Node2D" parent="."]
+
+[node name="CloseButton" type="Node2D" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CloseButton"]
+offset_left = -73.0
+offset_top = 157.0
+offset_right = 87.0
+offset_bottom = 189.0
+theme_override_fonts/normal_font = ExtResource("1_viryw")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[wave]CLOSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StorePolygon" type="Polygon2D" parent="CloseButton"]
+z_index = -2
+position = Vector2(-73, 145)
+scale = Vector2(160, 48)
+color = Color(0.219608, 0.0823529, 0.141176, 1)
+polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
+uv = PackedVector2Array(69.973, 75.093, 208.213, 88.7463, 150.186, 182.613, 59.733, 162.133)
+
+[node name="Shadow" type="Polygon2D" parent="CloseButton/StorePolygon"]
+z_index = -2
+position = Vector2(0.025, 0.083333)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
+uv = PackedVector2Array(69.973, 75.093, 208.213, 88.7463, 150.186, 182.613, 59.733, 162.133)
+
+[node name="Area2D" type="Area2D" parent="CloseButton"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CloseButton/Area2D"]
+position = Vector2(7, 169)
+shape = SubResource("RectangleShape2D_e7rdd")
+
+[connection signal="input_event" from="CloseButton/Area2D" to="." method="_on_close_shop"]

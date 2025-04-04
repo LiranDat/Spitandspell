@@ -20,3 +20,10 @@ func _process(delta: float) -> void:
 		letter.rotation = sin(time+float(index)*PI/1.7)/10.0/PI
 	time += delta
 	pass
+
+
+func _on_close_shop(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			self.queue_free()
+	pass # Replace with function body.
