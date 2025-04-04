@@ -21,4 +21,7 @@ func _process(delta):
 				letterNode.score = "1"
 				WordNode.add_child(letterNode)
 				letters.append(letterNode)
+			var voices = DisplayServer.tts_get_voices_for_language("en")
+			var voice_id = voices[0]
+			DisplayServer.tts_speak(word, voice_id)
 	pass

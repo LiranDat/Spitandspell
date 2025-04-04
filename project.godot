@@ -15,6 +15,10 @@ run/main_scene="uid://cmc88a1l4judd"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+general/text_to_speech=true
+
 [display]
 
 window/size/viewport_width=512

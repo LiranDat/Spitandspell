@@ -1,5 +1,4 @@
-res://WordTest.tscn
-res://WordListGenerator.tscn
-res://letter.tscn
-res://letter.gd
+res://tts_test.tscn
+res://tts_test.gd
 res://word_test.gd
+res://WordTest.tscn
