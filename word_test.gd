@@ -6,6 +6,7 @@ static var prefixTable = loadDict(PREFIXFILE)
 
 const LETTERCHARACTERS = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 const WORDFILE = "res://wordlist/wordlist-20210729.txt"
+const BADWORDFILE = "res://wordlist/badwords.txt"
 const PREFIXFILE = "res://wordlist/prefixes_precalc.txt"
 
 func _ready():

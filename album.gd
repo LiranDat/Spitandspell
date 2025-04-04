@@ -9,6 +9,7 @@ var albumNumber : int = 0:
 var price : int = 0
 
 const ALBUMFILE = "res://albums.xml"
+
 const ALBUMATTRIBUTES = ["id","title","description","subdescript","price"]
 const vowels = ["A","E","I","O","U"]
 var time = 0.0
@@ -194,11 +195,18 @@ var scoreWordFunctions =  {
 	3:scoreWord3,
 	4:scoreWord4,
 	5:scoreWord5,
-	6:scoreWord6
+	6:scoreWord6,
+	7:scoreWord7,
+	8:scoreWord8,
+	9:scoreWord9,
+	10:scoreWord10
 	}
 var buyAlbumFunctions = {
 	4: buyAlbum4,
-	6: buyAlbum6
+	6: buyAlbum6,
+	8: buyAlbum8,
+	9: buyAlbum9,
+	10:buyAlbum10
 }
 
 func scoreLetter0(letter,word):
@@ -247,6 +255,34 @@ func scoreWord6(word):
 	#if last word of repeat score x2
 	return [0,1]
 
+func scoreLetter7(letter:String,word:String):
+	return [0,1]
+func scoreWord7(word):
+	var badwords = loa
+	if(badwords.findn())
+	return [0,1]
+	
+func scoreLetter8(letter:String,word:String):
+	if(letter.to_upper() == "X"):
+		return [0,2]
+	return [0,1]
+func scoreWord8(word):
+	return [0,1]
+
+func scoreLetter9(letter:String,word:String):
+	if(letter.to_upper() == "Y"):
+		return [0,2]
+	return [0,1]
+func scoreWord9(word):
+	return [0,1]
+
+func scoreLetter10(letter:String,word:String):
+	if(letter.to_upper() == "Z"):
+		return [0,2]
+	return [0,1]
+func scoreWord10(word):
+	return [0,1]
+
 func buyAlbum4():
 	var alphabet = Alphabet.getAlphabet()
 	for key in ["A","E","I","O","U"]:
@@ -256,3 +292,16 @@ func buyAlbum6():
 	var alphabet = Alphabet.getAlphabet()
 	for key in ["U","V","W","X","Y","Z"]:
 		alphabet[key] = [alphabet[key][0]+1,alphabet[key][1]+1]
+
+func buyAlbum8():
+	var alphabet = Alphabet.getAlphabet()
+	for key in ["X"]:
+		alphabet[key] = [alphabet[key][0],alphabet[key][1]+2]
+func buyAlbum9():
+	var alphabet = Alphabet.getAlphabet()
+	for key in ["Y"]:
+		alphabet[key] = [alphabet[key][0],alphabet[key][1]+2]
+func buyAlbum10():
+	var alphabet = Alphabet.getAlphabet()
+	for key in ["Z"]:
+		alphabet[key] = [alphabet[key][0],alphabet[key][1]+2]
