@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://u43n1seeoccq"]
+
+[ext_resource type="Texture2D" uid="uid://cwyxy3mm375j5" path="res://aseprite/album.png" id="1_5p2gi"]
+[ext_resource type="Script" uid="uid://do64r41eo42mj" path="res://album.gd" id="2_uur71"]
+
+[node name="Album" type="Sprite2D"]
+texture = ExtResource("1_5p2gi")
+script = ExtResource("2_uur71")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+position = Vector2(4, 4)
+texture = ExtResource("1_5p2gi")

@@ -2,3 +2,10 @@ res://tts_test.tscn
 res://tts_test.gd
 res://word_test.gd
 res://WordTest.tscn
+res://Store.tscn
+res://shop.tscn
+res://shop.gd
+res://album.tscn
+res://letter.gd
+res://letter.tscn
+res://album.gd

@@ -1,0 +1,131 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0f2sqc6jp4b"]
+
+[ext_resource type="FontFile" uid="uid://6ybbtdjigu8h" path="res://fonts/m6x11.ttf" id="1_ptagb"]
+
+[node name="Shop" type="Node2D"]
+position = Vector2(225, 284)
+
+[node name="Sign" type="Polygon2D" parent="."]
+position = Vector2(-147, -173)
+scale = Vector2(320, 80)
+skew = 0.261799
+color = Color(0.462745, 0.258824, 0.541176, 1)
+polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0.78558, 1, 0, 1)
+uv = PackedVector2Array(69.973, 75.093, 208.213, 88.7463, 150.186, 182.613, 59.733, 162.133)
+
+[node name="Sign" type="Polygon2D" parent="Sign"]
+z_index = -1
+position = Vector2(0.0158494, 0.0517638)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0.78558, 1, 0, 1)
+uv = PackedVector2Array(69.973, 75.093, 208.213, 88.7463, 150.186, 182.613, 59.733, 162.133)
+
+[node name="Store" type="Polygon2D" parent="."]
+z_index = -2
+position = Vector2(-128, -140)
+scale = Vector2(256, 256)
+skew = -0.261799
+color = Color(0.219608, 0.0823529, 0.141176, 1)
+polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
+uv = PackedVector2Array(69.973, 75.093, 208.213, 88.7463, 150.186, 182.613, 59.733, 162.133)
+
+[node name="Store" type="Polygon2D" parent="Store"]
+z_index = -2
+position = Vector2(0.0228766, 0.0323524)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
+uv = PackedVector2Array(69.973, 75.093, 208.213, 88.7463, 150.186, 182.613, 59.733, 162.133)
+
+[node name="Letters" type="Node2D" parent="."]
+
+[node name="S" type="Label" parent="Letters"]
+modulate = Color(0.984314, 0.94902, 0.211765, 1)
+z_index = 10
+offset_left = -116.0
+offset_top = -200.0
+offset_right = -60.0
+offset_bottom = -88.0
+theme_override_fonts/font = ExtResource("1_ptagb")
+theme_override_font_sizes/font_size = 128
+text = "S"
+
+[node name="Shadow" type="Label" parent="Letters/S"]
+modulate = Color(0, 0, 0, 1)
+z_index = 6
+z_as_relative = false
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 61.0
+offset_bottom = 119.0
+theme_override_fonts/font = ExtResource("1_ptagb")
+theme_override_font_sizes/font_size = 128
+text = "S"
+
+[node name="H" type="Label" parent="Letters"]
+modulate = Color(0.984314, 0.94902, 0.211765, 1)
+z_index = 10
+offset_left = -52.0
+offset_top = -200.0
+offset_right = 4.0
+offset_bottom = -88.0
+theme_override_fonts/font = ExtResource("1_ptagb")
+theme_override_font_sizes/font_size = 128
+text = "H"
+
+[node name="Shadow" type="Label" parent="Letters/H"]
+modulate = Color(0, 0, 0, 1)
+z_index = 6
+z_as_relative = false
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 61.0
+offset_bottom = 119.0
+theme_override_fonts/font = ExtResource("1_ptagb")
+theme_override_font_sizes/font_size = 128
+text = "H"
+
+[node name="O" type="Label" parent="Letters"]
+modulate = Color(0.984314, 0.94902, 0.211765, 1)
+z_index = 10
+offset_left = 12.0
+offset_top = -200.0
+offset_right = 68.0
+offset_bottom = -88.0
+theme_override_fonts/font = ExtResource("1_ptagb")
+theme_override_font_sizes/font_size = 128
+text = "O"
+
+[node name="Shadow" type="Label" parent="Letters/O"]
+modulate = Color(0, 0, 0, 1)
+z_index = 6
+z_as_relative = false
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 61.0
+offset_bottom = 119.0
+theme_override_fonts/font = ExtResource("1_ptagb")
+theme_override_font_sizes/font_size = 128
+text = "O"
+
+[node name="P" type="Label" parent="Letters"]
+modulate = Color(0.984314, 0.94902, 0.211765, 1)
+z_index = 10
+offset_left = 76.0
+offset_top = -200.0
+offset_right = 132.0
+offset_bottom = -88.0
+theme_override_fonts/font = ExtResource("1_ptagb")
+theme_override_font_sizes/font_size = 128
+text = "P"
+
+[node name="Shadow" type="Label" parent="Letters/P"]
+modulate = Color(0, 0, 0, 1)
+z_index = 6
+z_as_relative = false
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 61.0
+offset_bottom = 119.0
+theme_override_fonts/font = ExtResource("1_ptagb")
+theme_override_font_sizes/font_size = 128
+text = "P"
