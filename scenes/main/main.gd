@@ -24,7 +24,7 @@ func start_lyrics():
 	var level = lyrics.instantiate()
 	add_child(level)
 	level.target_score = target_scores[level_counter]
-	$music.volume_db = -1
+	$music.volume_db = -3
 	$LetterSelection.distributeLetters(10)
 
 func win():
@@ -47,7 +47,7 @@ func start_shop():
 	
 	ding.position.x = 200
 	ding.position.y = 200
-	$music.volume_db = -7
+	$music.volume_db = -9
 
 func close_shop():
 	$music.stop()
