@@ -36,14 +36,14 @@
 		<id>5</id>
 		<title>Broken CD</title>
 		<description>All letter scores x2.</description>
-		<subdescript>Word Score / 2.<subdescript>
+		<subdescript>Word Score / 2.</subdescript>
 		<price>20</price>
 	</album>	
 	<album>
 		<id>6</id>
 		<title>Sheet Music</title>
 		<description>Last word of each repeat scores x2.</description>
-		<subdescript>Adds one U,V,W,X,Y,Z and increases their score +1.<subdescript>
+		<subdescript>Adds one U,V,W,X,Y,Z and increases their score +1.</subdescript>
 		<price>20</price>
 	</album>	
 </root>

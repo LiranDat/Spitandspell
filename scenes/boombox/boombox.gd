@@ -14,7 +14,6 @@ func _input(event: InputEvent) -> void:
 		bounce()
 
 func bounce():
-	print("bounce")
 	var tween1 = get_tree().create_tween()
 	var tween2 = get_tree().create_tween()
 	

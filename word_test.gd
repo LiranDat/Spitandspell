@@ -1,16 +1,30 @@
-extends Control
+class_name WordTest extends Control
 var word : String
 var letterScene = preload("res://letter.tscn")
 var letters : = []
-var prefixTable = {}
+static var prefixTable = {}
 
 const LETTERCHARACTERS = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 const WORDFILE = "res://wordlist/wordlist-20210729.txt"
 const PREFIXFILE = "res://wordlist/prefixes_precalc.txt"
+
 func _ready():
 	prefixPreLoad()
 	print(prefixTable)
 	pass
+	
+static func testWord(word):
+	return testWordIndex(word)>=0
+
+static func testWordIndex(word:String):
+	var file = FileAccess.open(WORDFILE, FileAccess.READ)
+	var content = file.get_as_text()
+	var searchString = "\"" + word + "\""
+	var prefixPos = getPrefixPos(word)
+	var searchIndex = -1
+	if(prefixPos):
+		searchIndex = content.findn(searchString,getPrefixPos(word))
+	return searchIndex
 	
 func _process(delta):
 	if($Panel/TextEdit.text != word):
@@ -18,23 +32,17 @@ func _process(delta):
 		var file = FileAccess.open(WORDFILE, FileAccess.READ)
 		var content = file.get_as_text()
 		var searchString = "\"" + word + "\""
-		var t1 = Time.get_unix_time_from_system()*1000
 		var prefixPos = getPrefixPos(word)
 		var searchIndex = -1
 		if(prefixPos):
 			searchIndex = content.findn(searchString,getPrefixPos(word))
-		var t2 = Time.get_unix_time_from_system()*1000
-		var tElapsed = t2-t1
-		print("Time for search: " + str(tElapsed)+ "ms")
 		
 		if(searchIndex>0):
-			print("Word found: " + word + " " + str(searchIndex))
 			$Panel/RichTextLabel.text = word.to_upper()
 			if($Panel/Letters.get_child_count()>0):
 				$Panel/Letters.get_child(0).queue_free()
 			var WordNode = Node2D.new()
 			$Panel/Letters.add_child(WordNode)
-			t2 = Time.get_unix_time_from_system()
 			for i in word.length():
 				var letterNode = letterScene.instantiate()
 				letterNode.letter = word[i].to_upper()
@@ -43,22 +51,19 @@ func _process(delta):
 				WordNode.add_child(letterNode)
 				letters.append(letterNode)
 	pass
-
-#func findWord(word : String):
-	#if(word.length()):
 		
 	
-func getPrefix(word : String):
+static func getPrefix(word : String):
 	if(word.length()):
 		var l = min(2,word.length())
 		return word.substr(0,l)
 	return -1
 
-func getPrefixPos(word : String):
+static func getPrefixPos(word : String):
 	if(word.length()):
 		return prefixTable[getPrefix(word)]
 
-func prefixPreLoad():
+static func prefixPreLoad():
 	prefixTable = loadDict(PREFIXFILE)
 	pass
 
@@ -84,7 +89,7 @@ func storeDict(filePath, dict):
 	file.close()
 	pass
 	
-func loadDict(filePath):
+static func loadDict(filePath):
 	var file = FileAccess.open(filePath, FileAccess.READ)
 	var content = {}
 	for i in file.get_as_text().count(":"):
