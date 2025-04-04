@@ -25,6 +25,7 @@ func start_lyrics():
 	$LetterSelection.distributeLetters(10)
 
 func win():
+	$restart_button.visible = true
 	$title.visible = true
 	$win_lose.visible = true
 	$win_lose.text = "You won!\nYour flow is truly sick!"
@@ -53,6 +54,7 @@ func lose():
 	var tween = get_tree().create_tween()
 	tween.tween_property($music, "pitch_scale", 0, 1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	
+	$restart_button.visible = true
 	$title.visible = true
 	$win_lose.visible = true
 	

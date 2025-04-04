@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://gai0xjg0pvo8"]
+[gd_scene load_steps=10 format=3 uid="uid://gai0xjg0pvo8"]
 
 [ext_resource type="Script" uid="uid://cb0h1ibnx7uyq" path="res://scenes/main/main.gd" id="1_hyk8p"]
 [ext_resource type="AudioStream" uid="uid://bra65x8j1ai1c" path="res://sounds/gamejam_boombap.wav" id="2_iuonh"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://dyv78ibi2l8bj" path="res://sounds/boo.mp3" id="6_ow5a4"]
 [ext_resource type="FontFile" uid="uid://6ybbtdjigu8h" path="res://fonts/m6x11.ttf" id="7_hujxm"]
 [ext_resource type="PackedScene" path="res://title.tscn" id="8_yyfjg"]
+[ext_resource type="Script" uid="uid://cwpf0ud3s00no" path="res://scenes/main/restart_button.gd" id="9_b1x3f"]
 
 [node name="main" type="Node"]
 script = ExtResource("1_hyk8p")
@@ -81,3 +82,15 @@ text = "You lost!
 Git gud noob..."
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="restart_button" type="Button" parent="."]
+visible = false
+offset_left = 111.0
+offset_top = 280.0
+offset_right = 363.0
+offset_bottom = 376.0
+rotation = -0.270526
+theme_override_fonts/font = ExtResource("7_hujxm")
+theme_override_font_sizes/font_size = 64
+text = "Restart?"
+script = ExtResource("9_b1x3f")
