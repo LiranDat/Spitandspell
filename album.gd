@@ -304,12 +304,12 @@ func buyAlbum6():
 func buyAlbum8():
 	var alphabet = Alphabet.getAlphabet()
 	for key in ["X"]:
-		alphabet[key] = [alphabet[key][0],alphabet[key][1]+2]
+		alphabet[key] = [alphabet[key][0],alphabet[key][1]+6]
 func buyAlbum9():
 	var alphabet = Alphabet.getAlphabet()
 	for key in ["Y"]:
-		alphabet[key] = [alphabet[key][0],alphabet[key][1]+2]
+		alphabet[key] = [alphabet[key][0],alphabet[key][1]+6]
 func buyAlbum10():
 	var alphabet = Alphabet.getAlphabet()
 	for key in ["Z"]:
-		alphabet[key] = [alphabet[key][0],alphabet[key][1]+2]
+		alphabet[key] = [alphabet[key][0],alphabet[key][1]+6]
