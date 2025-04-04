@@ -7,10 +7,12 @@
 size = Vector2(160, 48)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e7rdd"]
+content_margin_top = 8.0
 bg_color = Color(0.390896, 0.235825, 0.509861, 1)
 
 [node name="Shop" type="Node2D"]
-position = Vector2(177, 175)
+z_index = 10
+z_as_relative = false
 script = ExtResource("1_e7rdd")
 
 [node name="Visuals" type="Node2D" parent="."]
@@ -177,12 +179,12 @@ position = Vector2(7, 169)
 shape = SubResource("RectangleShape2D_e7rdd")
 
 [node name="close_button" type="Button" parent="."]
-offset_left = -72.0
-offset_top = 146.0
-offset_right = 75.0
-offset_bottom = 220.0
+offset_left = -105.0
+offset_top = 153.0
+offset_right = 119.0
+offset_bottom = 209.0
 theme_override_fonts/font = ExtResource("1_viryw")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxFlat_e7rdd")
 text = "CLOSE"
 
