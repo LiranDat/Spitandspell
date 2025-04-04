@@ -15,6 +15,12 @@ run/main_scene="uid://cmc88a1l4judd"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=512
+window/size/viewport_height=512
+window/stretch/scale_mode="integer"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

@@ -1,2 +1,5 @@
 res://WordTest.tscn
 res://WordListGenerator.tscn
+res://letter.tscn
+res://letter.gd
+res://word_test.gd

@@ -1,6 +1,40 @@
-[gd_scene load_steps=2 format=3 uid="uid://74i2jjbg5f4n"]
+[gd_scene load_steps=5 format=3 uid="uid://74i2jjbg5f4n"]
 
 [ext_resource type="Texture2D" uid="uid://biyccwdqgqcio" path="res://aseprite/letter.png" id="1_r6swm"]
+[ext_resource type="Script" uid="uid://bal7p1pws4xkx" path="res://letter.gd" id="2_5gbsb"]
+[ext_resource type="FontFile" uid="uid://d3cgo0kxecwrs" path="res://fonts/m5x7.ttf" id="3_57kop"]
+[ext_resource type="FontFile" uid="uid://8ascrcyxqol2" path="res://fonts/m3x6.ttf" id="4_kv2n4"]
 
-[node name="Node2D" type="Sprite2D"]
+[node name="Letter" type="Sprite2D"]
+texture = ExtResource("1_r6swm")
+script = ExtResource("2_5gbsb")
+letter = "a"
+
+[node name="Text" type="Label" parent="."]
+modulate = Color(0.0962047, 0.0962048, 0.0962047, 1)
+offset_left = -11.0
+offset_top = -21.0
+offset_right = 11.0
+offset_bottom = 5.0
+theme_override_fonts/font = ExtResource("3_57kop")
+theme_override_font_sizes/font_size = 32
+text = "A"
+horizontal_alignment = 1
+clip_text = true
+visible_characters = 1
+
+[node name="Score" type="Label" parent="."]
+offset_left = 7.0
+offset_right = 11.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("4_kv2n4")
+text = "1"
+horizontal_alignment = 1
+max_lines_visible = 1
+visible_characters = 1
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(4, 4)
 texture = ExtResource("1_r6swm")

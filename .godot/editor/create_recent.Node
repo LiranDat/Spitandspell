@@ -1,6 +1,8 @@
+Node2D
+Label
 Sprite2D
-Button
 RichTextLabel
+Button
 TextEdit
 Panel
 Node
