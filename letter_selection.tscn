@@ -10,6 +10,7 @@ script = ExtResource("1_bvp4e")
 position = Vector2(151, 128)
 
 [node name="Mic" parent="MicPos" instance=ExtResource("1_a8s43")]
+position = Vector2(1, 0)
 
 [node name="LetterDeck" type="Node2D" parent="MicPos"]
 

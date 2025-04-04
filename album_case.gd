@@ -37,7 +37,7 @@ func scoreWord(word : String):
 	pass
 
 func buyAlbum(album:Album):
-	if $Money.money > album.price:
+	if $Money.money >= album.price:
 		$Money.money -= album.price
 		addAlbum(album)
 		return true
