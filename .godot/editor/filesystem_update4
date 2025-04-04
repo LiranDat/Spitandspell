@@ -9,3 +9,8 @@ res://album.tscn
 res://letter.gd
 res://letter.tscn
 res://album.gd
+res://scenes/past_word/past_word.gd
+res://scenes/past_word/past_word.tscn
+res://scenes/lyrics/lyrics.gd
+res://scenes/new_score/new_score.gd
+res://lyric_test.tscn

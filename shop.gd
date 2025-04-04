@@ -1,5 +1,12 @@
 extends Node2D
 var time = 0.0
+var albumScene = preload("res://album.tscn")
+func _ready():
+	for i in range(6):
+		var album = albumScene.instantiate()
+		album.position = Vector2((float(i%3)-1)*80.0,float(i/3)*80.0)
+		$Albums.add_child(album)
+	pass
 
 func _process(delta: float) -> void:
 	$Visuals/StorePolygon.skew = sin(time*.5)/100.0*2.0

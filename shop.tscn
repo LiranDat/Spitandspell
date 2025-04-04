@@ -1,14 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://drpkjcye8s7dv"]
+[gd_scene load_steps=3 format=3 uid="uid://drpkjcye8s7dv"]
 
 [ext_resource type="Script" uid="uid://bv1k157tfkmi0" path="res://shop.gd" id="1_e7rdd"]
 [ext_resource type="FontFile" uid="uid://6ybbtdjigu8h" path="res://fonts/m6x11.ttf" id="1_viryw"]
-[ext_resource type="PackedScene" uid="uid://u43n1seeoccq" path="res://album.tscn" id="3_blqjs"]
 
 [node name="Shop" type="Node2D"]
-position = Vector2(111, 143)
 script = ExtResource("1_e7rdd")
 
 [node name="Visuals" type="Node2D" parent="."]
+position = Vector2(-128, -128)
 
 [node name="Letters" type="Node2D" parent="Visuals"]
 position = Vector2(8, -24)
@@ -133,21 +132,3 @@ polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
 uv = PackedVector2Array(69.973, 75.093, 208.213, 88.7463, 150.186, 182.613, 59.733, 162.133)
 
 [node name="Albums" type="Node2D" parent="."]
-
-[node name="Album" parent="Albums" instance=ExtResource("3_blqjs")]
-position = Vector2(47, 128)
-
-[node name="Album2" parent="Albums" instance=ExtResource("3_blqjs")]
-position = Vector2(125, 128)
-
-[node name="Album3" parent="Albums" instance=ExtResource("3_blqjs")]
-position = Vector2(203, 128)
-
-[node name="Album4" parent="Albums" instance=ExtResource("3_blqjs")]
-position = Vector2(48, 201)
-
-[node name="Album5" parent="Albums" instance=ExtResource("3_blqjs")]
-position = Vector2(126, 201)
-
-[node name="Album6" parent="Albums" instance=ExtResource("3_blqjs")]
-position = Vector2(204, 201)

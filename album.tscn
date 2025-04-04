@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://u43n1seeoccq"]
+[gd_scene load_steps=6 format=3 uid="uid://u43n1seeoccq"]
 
 [ext_resource type="Texture2D" uid="uid://cwyxy3mm375j5" path="res://aseprite/album.png" id="1_5p2gi"]
 [ext_resource type="Script" uid="uid://do64r41eo42mj" path="res://album.gd" id="2_uur71"]
+[ext_resource type="FontFile" uid="uid://6ybbtdjigu8h" path="res://fonts/m6x11.ttf" id="3_m6jhs"]
+[ext_resource type="FontFile" uid="uid://8ascrcyxqol2" path="res://fonts/m3x6.ttf" id="4_lmjgm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uur71"]
+size = Vector2(64, 64)
 
 [node name="Album" type="Sprite2D"]
+position = Vector2(94, 96)
 texture = ExtResource("1_5p2gi")
 script = ExtResource("2_uur71")
 
@@ -12,3 +18,50 @@ modulate = Color(0, 0, 0, 1)
 show_behind_parent = true
 position = Vector2(4, 4)
 texture = ExtResource("1_5p2gi")
+
+[node name="EnterArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnterArea"]
+shape = SubResource("RectangleShape2D_uur71")
+
+[node name="ExitArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea"]
+shape = SubResource("RectangleShape2D_uur71")
+
+[node name="Tooltip" type="Node2D" parent="."]
+
+[node name="AlbumName" type="RichTextLabel" parent="Tooltip"]
+z_index = 1
+offset_left = -16.0
+offset_top = -20.0
+offset_right = 92.0
+offset_bottom = 24.0
+theme_override_fonts/normal_font = ExtResource("3_m6jhs")
+theme_override_font_sizes/normal_font_size = 16
+text = "Album"
+
+[node name="AlbumDescription" type="Label" parent="Tooltip/AlbumName"]
+layout_mode = 0
+offset_top = 17.0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("4_lmjgm")
+theme_override_font_sizes/font_size = 16
+text = "Each e scores double"
+
+[node name="TooltipBox" type="Polygon2D" parent="Tooltip"]
+position = Vector2(-24, -24)
+scale = Vector2(100, 48)
+skew = 0.0872664
+color = Color(0.984314, 0.94902, 0.211765, 1)
+polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="Tooltip/TooltipBox"]
+show_behind_parent = true
+position = Vector2(0.0434995, 0.0836517)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
+
+[connection signal="mouse_entered" from="EnterArea" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ExitArea" to="." method="_on_exit_area_mouse_exited"]
