@@ -30,13 +30,8 @@ func distributeLetters(count):
 	while $LetterArea/Letters.get_child_count()>0:
 		var letter = $LetterArea/Letters.get_child(0)
 		letter.reparent($MicPos/LetterDeck)
-		var tween = letter.create_tween()
-		tween.set_ease(Tween.EASE_IN_OUT)
-		tween.set_trans(Tween.TRANS_ELASTIC)
-		tween.tween_property(letter,"position",Vector2(0.0,0.0),1.0)
-		await get_tree().create_timer(0.1).timeout
 		letter.hide()
-		$MicPos/Mic.pop()
+		letter.position = Vector2(0.0,0.0)
 	var letters = []
 	for index in range(count):
 		var childCount = $MicPos/LetterDeck.get_child_count()
@@ -72,7 +67,7 @@ func useLetter(l : String):
 		for letter in $LetterArea/Letters.get_children():
 			if letter.letter == l.to_upper() and letter.used == false:
 				letter.used = true
-		return true
+				return true
 	print("doesnt exist")
 	return false
 
