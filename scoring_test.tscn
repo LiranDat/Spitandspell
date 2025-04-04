@@ -33,8 +33,6 @@ position = Vector2(-418, -99)
 [node name="Shape" parent="LetterSelection/LetterArea" index="0"]
 polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0.905198, 1, 0.704366, 1, 0, 1)
 
-[node name="Letters" type="Node2D" parent="LetterSelection/LetterArea" index="1"]
-
 [node name="AlbumCase" parent="LetterSelection" instance=ExtResource("2_krsl8")]
 position = Vector2(96, -24)
 

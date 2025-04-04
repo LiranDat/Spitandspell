@@ -58,16 +58,18 @@ func getUsableLetters():
 	return usableLetters
 	
 func useLetter(l : String):
-	if($LetterArea/Letters.get_child_count()):
+	if($LetterArea/Letters and $LetterArea/Letters.get_child_count()>0):
 		for letter in $LetterArea/Letters.get_children():
 			if letter.letter == l.to_upper() and letter.used == false:
 				letter.used = true
-				return true
+		return true
+	print("doesnt exist")
 	return false
 
 func refreshLetters():
-	for letter in $LetterArea/Letters.get_children():
-			letter.used = false
+	if($LetterArea/Letters and $LetterArea/Letters.get_child_count()>0):
+		for letter in $LetterArea/Letters.get_children():
+				letter.used = false
 		
 func _on_timer_timeout() -> void:
 	distributeLetters(count)
