@@ -5,6 +5,8 @@
 
 [node name="LetterList" type="Panel"]
 self_modulate = Color(0.219608, 0.0823529, 0.141176, 1)
+z_index = 20
+z_as_relative = false
 custom_minimum_size = Vector2(800, 400)
 anchors_preset = 8
 anchor_left = 0.5

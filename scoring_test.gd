@@ -1,5 +1,8 @@
 extends Node2D
 
+func _ready():
+	Alphabet.setAlphabet(Alphabet.BASEALPHABET)
+	$LetterSelection.distributeLetters(10)
 func scoreWord(word:String) ->int:
 	var alphabet = Alphabet.getAlphabet()
 	var albumCase = get_tree().get_first_node_in_group("AlbumCase")

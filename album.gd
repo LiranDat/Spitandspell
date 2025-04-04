@@ -58,6 +58,8 @@ func buyAlbum():
 		if(case):
 			if(!case.isFull()):
 				if(case.buyAlbum(self)):
+					if(buyAlbumFunctions.has(albumNumber)):
+						buyAlbumFunctions[albumNumber].call()
 					owned = true
 	pass
 
@@ -295,21 +297,26 @@ func buyAlbum4():
 	var alphabet = Alphabet.getAlphabet()
 	for key in ["A","E","I","O","U"]:
 		alphabet[key] = [alphabet[key][0],alphabet[key][1]+1]
+	Alphabet.setAlphabet(alphabet)
 
 func buyAlbum6():
 	var alphabet = Alphabet.getAlphabet()
 	for key in ["U","V","W","X","Y","Z"]:
 		alphabet[key] = [alphabet[key][0]+1,alphabet[key][1]+1]
+	Alphabet.setAlphabet(alphabet)
 
 func buyAlbum8():
 	var alphabet = Alphabet.getAlphabet()
 	for key in ["X"]:
 		alphabet[key] = [alphabet[key][0],alphabet[key][1]+6]
+	Alphabet.setAlphabet(alphabet)
 func buyAlbum9():
 	var alphabet = Alphabet.getAlphabet()
 	for key in ["Y"]:
 		alphabet[key] = [alphabet[key][0],alphabet[key][1]+6]
+	Alphabet.setAlphabet(alphabet)
 func buyAlbum10():
 	var alphabet = Alphabet.getAlphabet()
 	for key in ["Z"]:
 		alphabet[key] = [alphabet[key][0],alphabet[key][1]+6]
+	Alphabet.setAlphabet(alphabet)

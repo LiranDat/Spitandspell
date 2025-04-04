@@ -29,10 +29,12 @@ const BASEALPHABET = { # [ Punkte, Häufigkeit ]
 	"Z": [10, 1]
 }
 
-static var data = BASEALPHABET
+static var data = {
+	
+}
 
 static func getAlphabet():
-	return data
+	return data.duplicate()
 
 static func setAlphabet(newData):
 	data = newData
