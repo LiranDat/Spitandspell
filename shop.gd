@@ -22,7 +22,8 @@ func _process(delta: float) -> void:
 	time += delta
 	
 	if $close_button.button_pressed:
-		get_parent().close_shop()
+		if(get_parent().has_method("close_shop")):
+			get_parent().close_shop()
 		queue_free()
 
 

@@ -258,8 +258,8 @@ func scoreWord6(word):
 func scoreLetter7(letter:String,word:String):
 	return [0,1]
 func scoreWord7(word):
-	#var badwords = loa
-	#if(badwords.findn())
+	if WordTest.testBadWord(word):
+		return [0,3]
 	return [0,1]
 	
 func scoreLetter8(letter:String,word:String):

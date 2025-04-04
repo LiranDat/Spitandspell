@@ -27,6 +27,13 @@ static func testWordIndex(word:String):
 		searchIndex = content.findn(searchString,getPrefixPos(word))
 	return searchIndex
 	
+static func testBadWord(word):
+	var file = FileAccess.open(BADWORDFILE, FileAccess.READ)
+	while not file.eof_reached():
+		var badWord = file.get_line()
+		if(badWord.findn(word)==0):
+			return true
+	return false
 func _process(delta):
 	if($Panel/TextEdit.text != word):
 		word = $Panel/TextEdit.text
