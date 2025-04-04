@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cafagrb0vw5pl"]
+[gd_scene load_steps=7 format=3 uid="uid://cafagrb0vw5pl"]
 
 [ext_resource type="Script" uid="uid://ddpr70s8jwaq5" path="res://scenes/lyrics/lyrics.gd" id="1_benk7"]
 [ext_resource type="FontFile" uid="uid://6ybbtdjigu8h" path="res://fonts/m6x11.ttf" id="1_s2xdx"]
+[ext_resource type="Script" uid="uid://d0xu82sf6qglb" path="res://scenes/lyrics/score_label.gd" id="3_146f6"]
 [ext_resource type="AudioStream" uid="uid://cq5daor6swjwj" path="res://sounds/ooh.wav" id="3_a3jdk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a3jdk"]
@@ -47,6 +48,7 @@ text = "0/0"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("3_146f6")
 
 [node name="ooh" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_a3jdk")

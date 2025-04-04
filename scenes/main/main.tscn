@@ -13,7 +13,6 @@ script = ExtResource("1_hyk8p")
 stream = ExtResource("2_iuonh")
 
 [node name="Node2D" type="Node2D" parent="."]
-visible = false
 
 [node name="background" type="Polygon2D" parent="Node2D"]
 color = Color(1, 0.5, 0.5, 1)
