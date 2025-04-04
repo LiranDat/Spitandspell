@@ -27,6 +27,16 @@ func createLetterDeck(alphabet:Dictionary):
 	
 func distributeLetters(count):
 	usableLetters.clear()
+	while $LetterArea/Letters.get_child_count()>0:
+		var letter = $LetterArea/Letters.get_child(0)
+		letter.reparent($MicPos/LetterDeck)
+		var tween = letter.create_tween()
+		tween.set_ease(Tween.EASE_IN_OUT)
+		tween.set_trans(Tween.TRANS_ELASTIC)
+		tween.tween_property(letter,"position",Vector2(0.0,0.0),1.0)
+		await get_tree().create_timer(0.1).timeout
+		letter.hide()
+		$MicPos/Mic.pop()
 	var letters = []
 	for index in range(count):
 		var childCount = $MicPos/LetterDeck.get_child_count()
