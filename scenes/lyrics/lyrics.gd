@@ -53,6 +53,8 @@ func score():
 		var instance1 = new_score.instantiate()
 		instance1.text = "+" + str(current_sum)
 		add_child(instance1)
+		instance1.position.y = 20
+		instance1.position.x = 200
 		
 		total_sum += current_sum
 		

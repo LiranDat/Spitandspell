@@ -8,9 +8,6 @@ func _ready() -> void:
 	randomize()
 	random = randf()
 	
-	self.position.x = 10
-	self.position.y = 10
-	
 	var tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_ELASTIC)
