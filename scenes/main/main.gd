@@ -32,5 +32,11 @@ func start_shop():
 func close_shop():
 	start_lyrics()
 
+func lose():
+	var tween = get_tree().create_tween()
+	tween.tween_property($music, "pitch_scale", 0, 1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	
+	$boo.play()
+
 func _process(delta: float) -> void:
 	pass

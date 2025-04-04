@@ -38,8 +38,6 @@ func score_word(word:String) ->int:
 	var score = 0
 	var letterScores = []
 	var letterSelection : LetterSelection = get_tree().get_first_node_in_group("LetterSelection")
-	if(!WordTest.testWord(word)):
-		return 0
 	for letterIndex in word.length():
 		var letter = word[letterIndex].to_upper()
 		var letterScore = [0,0]
@@ -100,7 +98,10 @@ func score():
 		end_round()
 
 func end_round():
-	get_parent().start_shop()
+	if total_sum < target_score:
+		get_parent().lose()
+	else:
+		get_parent().start_shop()
 	self.queue_free()
 
 func _input(event):
