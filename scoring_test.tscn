@@ -22,13 +22,13 @@ offset_right = 364.0
 offset_bottom = 96.0
 
 [node name="LetterSelection" parent="." instance=ExtResource("2_7iipe")]
-position = Vector2(266, 218)
+position = Vector2(248, 168)
 
 [node name="MicPos" parent="LetterSelection" index="0"]
 position = Vector2(-676, -19)
 
 [node name="LetterArea" parent="LetterSelection" index="1"]
-position = Vector2(-434, -145)
+position = Vector2(-418, -99)
 
 [node name="Shape" parent="LetterSelection/LetterArea" index="0"]
 polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0.905198, 1, 0.704366, 1, 0, 1)
