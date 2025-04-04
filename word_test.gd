@@ -9,6 +9,7 @@ const WORDFILE = "res://wordlist/wordlist-20210729.txt"
 const PREFIXFILE = "res://wordlist/prefixes_precalc.txt"
 
 func _ready():
+	prefixPreCalculate()
 	prefixPreLoad()
 	print(prefixTable)
 	pass
@@ -19,7 +20,7 @@ static func testWord(word):
 static func testWordIndex(word:String):
 	var file = FileAccess.open(WORDFILE, FileAccess.READ)
 	var content = file.get_as_text()
-	var searchString = "\"" + word + "\""
+	var searchString = "\"" + word.to_upper() + "\""
 	var prefixPos = getPrefixPos(word)
 	var searchIndex = -1
 	if(prefixPos):
@@ -74,10 +75,12 @@ func prefixPreCalculate():
 		var searchString = "\"" + letter
 		var searchIndex = content.findn(searchString)
 		prefixTable[letter] = searchIndex
+		prefixTable[letter.to_upper()] = searchIndex
 		for letter2 in LETTERCHARACTERS:
 			searchString = "\"" + letter + letter2
 			searchIndex = content.findn(searchString)
 			prefixTable[letter+letter2] = searchIndex
+			prefixTable[(letter+letter2).to_upper()] = searchIndex
 	print(prefixTable)
 	storeDict(PREFIXFILE, prefixTable)
 	pass

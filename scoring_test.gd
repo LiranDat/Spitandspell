@@ -6,7 +6,7 @@ func scoreWord(word:String) ->int:
 	var score = 0
 	var letterScores = []
 	var letterSelection : LetterSelection = get_tree().get_first_node_in_group("LetterSelection")
-	if(!WordTest.testWord(word)):
+	if(!WordTest.testWord(word.to_upper())):
 		return 0
 	for letterIndex in word.length():
 		var letter = word[letterIndex].to_upper()		
