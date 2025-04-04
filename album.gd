@@ -10,7 +10,7 @@ var price : int = 0
 
 const ALBUMFILE = "res://albums.xml"
 const ALBUMATTRIBUTES = ["id","title","description","subdescript","price"]
-
+const vowels = ["A","E","I","O","U"]
 var time = 0.0
 var tween : Tween
 var hovering : bool = false
@@ -28,6 +28,19 @@ func _process(delta: float) -> void:
 	if(owned):
 		$Tooltip/PriceTag.hide()
 		$Tooltip/Price.hide()
+	pass
+
+func scoreLetter(letter:String, word:String):
+	if(albumNumber==0):
+		return scoreLetter0(letter,word)
+	else:
+		return [0,1]
+	pass
+
+func scoreWord(word:String):
+	if(albumNumber==0):
+		return scoreWord0(word)
+	return [0,1]
 	pass
 
 func updateAlbumInfo():
@@ -160,3 +173,49 @@ func parseAlbums():
 		albums.append(album)
 	return albums
 	pass
+
+func scoreLetter0(letter,word):
+	if(vowels.find(letter)>0):
+		return [-1,1]
+	else:
+		return [0,1]
+func scoreWord0(word):
+	return [0,2]
+	
+func scoreLetter1(letter:String,word:String):
+	if(word.find(letter.to_upper(),word.find(letter.to_upper())+1)):
+		return [0,3]
+	else:
+		return [0,1]
+func scoreWord1(word):
+	return [0,1]
+
+func scoreLetter2(letter:String,word:String):
+	return [0,1]
+func scoreWord2(word):
+	if(word.length()<=3):
+		return [0,3]
+	return [0,1]
+
+func scoreLetter3(letter:String,word:String):
+	return [0,1]
+func scoreWord3(word):
+	return [0,1]
+
+func scoreLetter4(letter:String,word:String):
+	if(vowels.find(letter)>0):
+		return [1,1]
+	return [0,1]
+func scoreWord4(word):
+	return [0,1]
+
+func scoreLetter5(letter:String,word:String):
+	return [0,2]
+func scoreWord5(word):
+	return [0,.5]
+
+func scoreLetter6(letter:String,word:String):
+	return [0,1]
+func scoreWord6(word):
+	#if last word of repeat score x2
+	return [0,1]

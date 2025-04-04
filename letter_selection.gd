@@ -1,8 +1,10 @@
-extends Node2D
+class_name LetterSelection extends Node2D
 
 var letterScene = preload("res://letter.tscn")
 @export var letterAreaSize : Vector2i = Vector2i(5,2)
 var count = 0
+
+var usableLetters = []
 
 var abc = { # [ Punkte, Häufigkeit ]
 	"A": [1, 9],
@@ -34,6 +36,7 @@ var abc = { # [ Punkte, Häufigkeit ]
 }
 
 func _ready():
+	$LetterArea/Shape.hide()
 	count = letterAreaSize.x*letterAreaSize.y
 	createLetterDeck(abc)
 	$LetterArea/Shape.scale = Vector2(64.,64.)*Vector2(letterAreaSize)
@@ -53,6 +56,7 @@ func createLetterDeck(abc):
 	pass
 	
 func distributeLetters(count):
+	usableLetters.clear()
 	var letters = []
 	for index in range(count):
 		var childCount = $MicPos/LetterDeck.get_child_count()
@@ -61,10 +65,11 @@ func distributeLetters(count):
 		var childIndex = randi_range(0,$MicPos/LetterDeck.get_child_count()-1)
 		var letter = $MicPos/LetterDeck.get_child(childIndex)
 		letters.append(letter)
-		letter.reparent($LetterArea)
+		letter.reparent($LetterArea/Letters)
 	letters.sort_custom(lettersort)
 	for index in range(letters.size()):
 		var letter = letters[index]
+		usableLetters.append(letter)
 		var tween = letter.create_tween()
 		tween.set_ease(Tween.EASE_IN_OUT)
 		tween.set_trans(Tween.TRANS_ELASTIC)
@@ -73,12 +78,22 @@ func distributeLetters(count):
 		tween.tween_property(letter,"position",Vector2(xPos,yPos),1.0)
 		letter.show()
 		$MicPos/Mic.pop()
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(0.1).timeout
 	pass
 
 func lettersort(a:Letter,b:Letter):
 	return a.letter <= b.letter
 
+func getUsableLetters():
+	return usableLetters
+	
+func useLetter(l : String):
+	for letter in $LetterArea/Letters.get_children():
+		if letter.letter == l.to_upper() and letter.used == false:
+			letter.used = true
+			return
+	pass
+		
 func _on_timer_timeout() -> void:
 	distributeLetters(count)
 	pass # Replace with function body.

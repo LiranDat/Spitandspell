@@ -15,7 +15,6 @@ script = ExtResource("2_5gbsb")
 texture = ExtResource("1_r6swm")
 
 [node name="Text" type="Label" parent="Letter"]
-modulate = Color(0.0962047, 0.0962048, 0.0962047, 1)
 offset_left = -11.0
 offset_top = -21.0
 offset_right = 11.0

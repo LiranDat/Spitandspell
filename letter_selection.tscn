@@ -3,9 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bt3pifrcmwhrx" path="res://mic.tscn" id="1_a8s43"]
 [ext_resource type="Script" uid="uid://dfchx6q4hw7ch" path="res://letter_selection.gd" id="1_bvp4e"]
 
-[node name="LetterSelection" type="Node2D"]
+[node name="LetterSelection" type="Node2D" groups=["LetterSelection"]]
 script = ExtResource("1_bvp4e")
-letterAreaSize = Vector2i(8, 2)
 
 [node name="MicPos" type="Node2D" parent="."]
 position = Vector2(151, 128)

@@ -1,6 +1,18 @@
 class_name Letter extends Node2D
 var time = 0.0
 var spawn = true
+var alpha : float = 1.0
+var used : bool = false:
+	set(value):
+		var tween = get_tree().create_tween()
+		tween.set_ease(Tween.EASE_OUT)
+		tween.set_trans(Tween.TRANS_ELASTIC)
+		if value==false:
+			tween.tween_property(self,"alpha",1.0,1.0)
+		else:
+			tween.tween_property(self,"alpha",.5,1.0)
+		used = value
+		
 @export var letter : String = "A"
 @export var score : int = 1
 
@@ -14,6 +26,7 @@ func _ready():
 func _process(delta: float) -> void:
 	if(swayEnabled):
 		sway(delta)
+	self.modulate.a = alpha
 	pass
 
 func appear():

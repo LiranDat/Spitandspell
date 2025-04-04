@@ -15,6 +15,22 @@ func _process(delta: float) -> void:
 func isFull():
 	return full
 	
+func scoreLetter(letter : String, word : String):
+	var score = [0,1]
+	for album in albums:
+		var albumScore = await album.scoreLetter(letter,word)
+		score = [score[0]+albumScore[0],score[1]*albumScore[1]]
+	return score
+	pass
+
+func scoreWord(word : String):
+	var score = [0,1]
+	for album in albums:
+		var albumScore = await album.scoreWord(word)
+		score = [score[0]+albumScore[0],score[1]*albumScore[1]]
+	return score
+	pass
+
 func buyAlbum(album:Album):
 	if $Money.money > album.price:
 		$Money.money -= album.price
