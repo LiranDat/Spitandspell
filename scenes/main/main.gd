@@ -2,7 +2,6 @@ extends Node
 
 var target_scores = [10, 20, 40, 80, 160, 320]
 var level_counter = -1
-var money = 0
 
 # Szenen
 var lyrics = preload("res://scenes/lyrics/lyrics.tscn")
@@ -26,8 +25,12 @@ func start_lyrics():
 	$LetterSelection.distributeLetters(10)
 
 func start_shop():
+	var case = get_tree().get_first_node_in_group("AlbumCase")
+	if(case):
+		case.addMoney(10+level_counter*2)
 	var ding = shop.instantiate()
 	add_child(ding)
+	
 	ding.position.x = 200
 	ding.position.y = 200
 	$music.volume_db = -7
