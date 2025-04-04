@@ -11,7 +11,6 @@ func _ready():
 			var xPos = 64.0*float(int(letterIndex%AreaSize.x))+32.0
 			var size = 64.0*12.0+32.0
 			xPos -= size/2.0
-			print(size)
 			var yPos = 80.0*float(int(letterIndex/AreaSize.x))+count*4.0
 			letterInstance.position = Vector2(xPos,yPos)
 			letterInstance.letter = letters[letterIndex]

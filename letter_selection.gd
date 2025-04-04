@@ -68,7 +68,6 @@ func useLetter(l : String):
 			if letter.letter == l.to_upper() and letter.used == false:
 				letter.used = true
 				return true
-	print("doesnt exist")
 	return false
 
 func refreshLetters():

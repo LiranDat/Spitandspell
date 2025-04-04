@@ -15,5 +15,4 @@ func parseAlbums():
 				if(part.to_dict()["__name__"]==attribute):
 					album[attribute] = part.content
 		albums.append(album)
-	print(albums)
 	pass

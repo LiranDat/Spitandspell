@@ -56,9 +56,7 @@ func buyAlbum():
 
 func updateAlbumInfo():
 	var albumInfo = {}
-	print(parseAlbums().size())
 	albumInfo = parseAlbums()[albumNumber]
-	print(albumInfo)
 	$Album.frame=albumNumber
 	$Album/Shadow.frame=albumNumber
 	#["id","title","description","subdescr","price"]

@@ -35,7 +35,6 @@ func buyAlbum(album:Album):
 	if $Money.money > album.price:
 		$Money.money -= album.price
 		addAlbum(album)
-		print(albums.size())
 		return true
 	return false
 	pass

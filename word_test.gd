@@ -11,7 +11,6 @@ const PREFIXFILE = "res://wordlist/prefixes_precalc.txt"
 
 func _ready():
 	prefixPreLoad()
-	print(prefixTable)
 	pass
 	
 static func testWord(word):
@@ -88,7 +87,6 @@ func prefixPreCalculate():
 			searchIndex = content.findn(searchString)
 			prefixTable[letter+letter2] = searchIndex
 			prefixTable[(letter+letter2).to_upper()] = searchIndex
-	print(prefixTable)
 	storeDict(PREFIXFILE, prefixTable)
 	pass
 
