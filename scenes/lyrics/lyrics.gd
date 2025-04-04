@@ -39,27 +39,30 @@ func word_exists(word: String) -> bool:
 		return true
 	return false
 
-func score_word(word:String):
+func score_word(word:String) ->int:
 	var alphabet = Alphabet.getAlphabet()
-	var album_case = get_tree().get_first_node_in_group("AlbumCase")
+	var albumCase = get_tree().get_first_node_in_group("AlbumCase")
 	var score = 0
-	var letter_scores = []
-	var letter_selection : LetterSelection = get_tree().get_first_node_in_group("LetterSelection")
-	for letter_index in word.length():
-		var letter = word[letter_index].to_upper()
+	var letterScores = []
+	var letterSelection : LetterSelection = get_tree().get_first_node_in_group("LetterSelection")
+	if(!WordTest.testWord(word)):
+		return 0
+	for letterIndex in word.length():
+		var letter = word[letterIndex].to_upper()		
 		var letterScore = [0,0]
-		if letter_selection.useLetter(letter):
-			letterScore = await album_case.scoreLetter(letter,word)
+		if letterSelection.useLetter(letter):
+			letterScore = await albumCase.scoreLetter(letter,word)
 		score += letterScore[0]+letterScore[1]*alphabet[letter][0]
-		letter_scores.push_back([letter,letterScore[0]+letterScore[1]*alphabet[letter][0]])
+		letterScores.push_back([letter,letterScore[0]+letterScore[1]*alphabet[letter][0]])
 		await get_tree().create_timer(.1).timeout
 	var rawWordScore = score
-	var word_score = await album_case.scoreWord(word.to_upper())
-	score = word_score[0]+word_score[1]*score
-	#printScore(word,letterScores,rawWordScore,score)
-	letter_selection.refreshLetters()
+	var wordScore = await albumCase.scoreWord(word.to_upper())
+	score = wordScore[0]+wordScore[1]*score
+	await get_tree().create_timer(0.5).timeout
+	letterSelection.refreshLetters()
+	return int(score)
 
-func score_old():
+func score():
 	
 	# boombox bounce
 	$"../boombox".bounce()
@@ -67,8 +70,7 @@ func score_old():
 	current_sum = 0
 	
 	if word_exists(current_word):
-		for letter in current_word:
-			current_sum += score_letter_old(letter)
+		current_sum = await score_word(current_word)
 		
 		var instance1 = new_score.instantiate()
 		instance1.text = "+" + str(current_sum)
@@ -110,8 +112,6 @@ func end_round():
 func _input(event):
 	if event.as_text() in alphabet and event.pressed:
 		current_word += event.as_text()
-	elif event.as_text() == "Space" and event.pressed:
-		score_old()
 	elif event.as_text() == "Backspace" and event.pressed:
 		current_word = current_word.left(-1)
 
@@ -122,7 +122,7 @@ func _process(delta: float) -> void:
 	if timer > 0:
 		timer -= delta
 	else:
-		score_old()
+		score()
 		timer = 2.4
 	
 	$timer_bar.value = timer

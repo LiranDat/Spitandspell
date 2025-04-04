@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://gai0xjg0pvo8"]
+[gd_scene load_steps=6 format=3 uid="uid://gai0xjg0pvo8"]
 
 [ext_resource type="Script" uid="uid://cb0h1ibnx7uyq" path="res://scenes/main/main.gd" id="1_hyk8p"]
 [ext_resource type="AudioStream" uid="uid://bra65x8j1ai1c" path="res://sounds/gamejam_boombap.wav" id="2_iuonh"]
 [ext_resource type="PackedScene" uid="uid://cxs7oivpdk1jn" path="res://scenes/boombox/boombox.tscn" id="3_k2fmo"]
 [ext_resource type="PackedScene" uid="uid://b56orn6gpj15h" path="res://album_case.tscn" id="4_l3cfh"]
+[ext_resource type="PackedScene" uid="uid://d14bd2ryyhrdr" path="res://letter_selection.tscn" id="5_6q06x"]
 
 [node name="main" type="Node"]
 script = ExtResource("1_hyk8p")
@@ -39,3 +40,6 @@ scale = Vector2(2, 2)
 
 [node name="AlbumCase" parent="." instance=ExtResource("4_l3cfh")]
 position = Vector2(1006, 516)
+
+[node name="LetterSelection" parent="." instance=ExtResource("5_6q06x")]
+position = Vector2(116, 359)
