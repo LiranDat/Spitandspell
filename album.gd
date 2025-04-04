@@ -45,6 +45,13 @@ func scoreWord(word:String):
 		return [0,1]
 	pass
 	
+func sellAlbum():
+	var case = get_tree().get_first_node_in_group("AlbumCase")
+	case.sellAlbum(self)
+	owned = false
+	queue_free()
+	pass
+	
 func buyAlbum():
 	if(!owned):
 		var case = get_tree().get_first_node_in_group("AlbumCase")
@@ -154,6 +161,8 @@ func _on_enter_area_input_event(viewport: Node, event: InputEvent, shape_idx: in
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			click()
 			buyAlbum()
+		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed and owned==true:
+			sellAlbum()
 	pass # Replace with function body.
 
 

@@ -39,7 +39,7 @@ position = Vector2(96, -24)
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Shop" parent="." instance=ExtResource("3_h7saj")]
-position = Vector2(-280, -80)
+position = Vector2(-376, -136)
 
 [node name="Button" type="Button" parent="."]
 offset_left = 114.0
