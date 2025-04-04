@@ -21,10 +21,12 @@ func start_lyrics():
 	add_child(level)
 	level.target_score = target_scores[level_counter]
 	$music.play()
+	$music.volume_db = -1
 	$boombox.bounce()
 
 func start_shop():
 	add_child(shop.instantiate())
+	$music.volume_db = -7
 
 func _process(delta: float) -> void:
 	pass
