@@ -28,5 +28,8 @@ func start_shop():
 	add_child(shop.instantiate())
 	$music.volume_db = -7
 
+func close_shop():
+	start_lyrics()
+
 func _process(delta: float) -> void:
 	pass

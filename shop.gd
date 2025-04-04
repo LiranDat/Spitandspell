@@ -20,12 +20,14 @@ func _process(delta: float) -> void:
 		letter.position.y = sin(time+float(index)*PI/13.0)*6.0
 		letter.rotation = sin(time+float(index)*PI/1.7)/10.0/PI
 	time += delta
-	pass
+	
+	if $close_button.button_pressed:
+		get_parent().close_shop()
+		queue_free()
 
 
 func _on_close_shop(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			emit_signal("shop_closed")
+			get_parent().close_shop()
 			self.queue_free()
-	pass # Replace with function body.

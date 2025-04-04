@@ -15,8 +15,8 @@ var scoring_word = ""
 var target_score = 0
 
 # Arrangement
-var words_per_round = 4
-var rounds_per_shop = 3
+var words_per_round = 8
+var rounds_per_shop = 1
 var word_count = 0
 var round_count = 0
 
