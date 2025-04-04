@@ -1,6 +1,7 @@
 extends Node2D
 var time = 0.0
 var albumScene = preload("res://album.tscn")
+signal shop_closed
 
 func _ready():
 	for i in range(3):
@@ -25,5 +26,6 @@ func _process(delta: float) -> void:
 func _on_close_shop(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			emit_signal("shop_closed")
 			self.queue_free()
 	pass # Replace with function body.
