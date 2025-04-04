@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d14bd2ryyhrdr" path="res://letter_selection.tscn" id="5_6q06x"]
 [ext_resource type="AudioStream" uid="uid://dyv78ibi2l8bj" path="res://sounds/boo.mp3" id="6_ow5a4"]
 [ext_resource type="FontFile" uid="uid://6ybbtdjigu8h" path="res://fonts/m6x11.ttf" id="7_hujxm"]
-[ext_resource type="PackedScene" uid="uid://b715lkrehpwd0" path="res://title.tscn" id="8_yyfjg"]
+[ext_resource type="PackedScene" path="res://title.tscn" id="8_yyfjg"]
 
 [node name="main" type="Node"]
 script = ExtResource("1_hyk8p")
@@ -66,3 +66,18 @@ horizontal_alignment = 1
 
 [node name="title" parent="." instance=ExtResource("8_yyfjg")]
 position = Vector2(608, 152)
+
+[node name="win_lose" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 474.0
+offset_top = 279.0
+offset_right = 747.0
+offset_bottom = 419.0
+theme_override_colors/selection_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("7_hujxm")
+theme_override_font_sizes/normal_font_size = 48
+text = "You lost!
+Git gud noob..."
+horizontal_alignment = 1
+vertical_alignment = 1

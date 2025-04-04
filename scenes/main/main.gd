@@ -1,6 +1,6 @@
 extends Node
 
-var target_scores = [10, 20, 40, 80, 160, 320]
+var target_scores = [10, 20, 40, 80, 160, 320, 640, 1280, 2560, 5120]
 var level_counter = -1
 
 # Szenen
@@ -24,7 +24,17 @@ func start_lyrics():
 	$music.volume_db = -1
 	$LetterSelection.distributeLetters(10)
 
+func win():
+	$title.visible = true
+	$win_lose.visible = true
+	$win_lose.text = "You won!\nYour flow is truly sick!"
+
 func start_shop():
+	
+	if level_counter == 9:
+		win()
+		return
+	
 	var case = get_tree().get_first_node_in_group("AlbumCase")
 	if(case):
 		case.addMoney(10+level_counter*2)
@@ -42,5 +52,8 @@ func close_shop():
 func lose():
 	var tween = get_tree().create_tween()
 	tween.tween_property($music, "pitch_scale", 0, 1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	
+	$title.visible = true
+	$win_lose.visible = true
 	
 	$boo.play()
