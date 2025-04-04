@@ -22,6 +22,8 @@ position = Vector2(318, 64)
 scale = Vector2(342.638, 163.09)
 polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
 
+[node name="Letters" type="Node2D" parent="LetterArea"]
+
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true

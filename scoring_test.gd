@@ -27,7 +27,7 @@ func scoreWord(word:String) ->int:
 	
 func printScore(word,letterScores,rawWordScore,score):
 	print("Word: "+ word.to_upper())
-	print("Word scorees: " + str(letterScores))
+	print("Word scores: " + str(letterScores))
 	print("Raw word score: " + str(rawWordScore))
 	print("Total score: " + str(int(score)))
 
