@@ -28,7 +28,7 @@ func _ready() -> void:
 	new_score = preload("res://scenes/new_score/new_score.tscn")
 	fire = preload("res://scenes/fire/fire.tscn")
 
-func score_letter(letter: String) -> int:
+func score_letter_old(letter: String) -> int:
 	return alphabet[letter][0]
 
 func word_exists(word: String) -> bool:
@@ -39,7 +39,27 @@ func word_exists(word: String) -> bool:
 		return true
 	return false
 
-func score():
+func score_word(word:String):
+	var alphabet = Alphabet.getAlphabet()
+	var album_case = get_tree().get_first_node_in_group("AlbumCase")
+	var score = 0
+	var letter_scores = []
+	var letter_selection : LetterSelection = get_tree().get_first_node_in_group("LetterSelection")
+	for letter_index in word.length():
+		var letter = word[letter_index].to_upper()
+		var letterScore = [0,0]
+		if letter_selection.useLetter(letter):
+			letterScore = await album_case.scoreLetter(letter,word)
+		score += letterScore[0]+letterScore[1]*alphabet[letter][0]
+		letter_scores.push_back([letter,letterScore[0]+letterScore[1]*alphabet[letter][0]])
+		await get_tree().create_timer(.1).timeout
+	var rawWordScore = score
+	var word_score = await album_case.scoreWord(word.to_upper())
+	score = word_score[0]+word_score[1]*score
+	#printScore(word,letterScores,rawWordScore,score)
+	letter_selection.refreshLetters()
+
+func score_old():
 	
 	# boombox bounce
 	$"../boombox".bounce()
@@ -48,7 +68,7 @@ func score():
 	
 	if word_exists(current_word):
 		for letter in current_word:
-			current_sum += score_letter(letter)
+			current_sum += score_letter_old(letter)
 		
 		var instance1 = new_score.instantiate()
 		instance1.text = "+" + str(current_sum)
@@ -91,7 +111,7 @@ func _input(event):
 	if event.as_text() in alphabet and event.pressed:
 		current_word += event.as_text()
 	elif event.as_text() == "Space" and event.pressed:
-		score()
+		score_old()
 	elif event.as_text() == "Backspace" and event.pressed:
 		current_word = current_word.left(-1)
 
@@ -102,7 +122,7 @@ func _process(delta: float) -> void:
 	if timer > 0:
 		timer -= delta
 	else:
-		score()
+		score_old()
 		timer = 2.4
 	
 	$timer_bar.value = timer
