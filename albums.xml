@@ -10,7 +10,7 @@
 	<album>
 		<id>1</id>
 		<title>Copy</title>
-		<description>Each time a letter is used twice, it scores 3x.</description>
+		<description>Each time a letter is used twice, it scores 4x.</description>
 		<price>30</price>
 	</album>
 	<album>
@@ -35,7 +35,7 @@
 	<album>
 		<id>5</id>
 		<title>Broken CD</title>
-		<description>All letter scores x2.</description>
+		<description>All letter scores x3.</description>
 		<subdescript>Word Score / 2.</subdescript>
 		<price>10</price>
 	</album>	
@@ -43,7 +43,7 @@
 		<id>6</id>
 		<title>Sheet Music</title>
 		<description>Last word of each repeat scores x2.</description>
-		<subdescript>Adds one U,V,W,X,Y,Z and increases their score +1.</subdescript>
+		<subdescript>Adds 3x U,V,W,X,Y,Z and increases their score +3.</subdescript>
 		<price>20</price>
 	</album>	
 	<album>
@@ -55,22 +55,22 @@
 	<album>
 		<id>8</id>
 		<title>X</title>
-		<description>X scores x2.</description>
-		<subdescript>Adds 6 X.</subdescript>
+		<description>X scores x3.</description>
+		<subdescript>Adds 10 X.</subdescript>
 		<price>10</price>
 	</album>
 	<album>
 		<id>9</id>
 		<title>Y</title>
-		<description>Y scores x2.</description>
-		<subdescript>Adds 6 Y.</subdescript>
+		<description>Y scores x3.</description>
+		<subdescript>Adds 10 Y.</subdescript>
 		<price>10</price>
 	</album>
 	<album>
 		<id>10</id>
 		<title>Z</title>
-		<description>Z scores x2.</description>
-		<subdescript>Adds 6 Z.</subdescript>
+		<description>Z scores x3.</description>
+		<subdescript>Adds 10 Z.</subdescript>
 		<price>10</price>
 	</album>		
 </root>

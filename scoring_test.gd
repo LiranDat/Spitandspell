@@ -21,7 +21,7 @@ func scoreWord(word:String) ->int:
 		await get_tree().create_timer(.1).timeout
 	var rawWordScore = score
 	var wordScore = await albumCase.scoreWord(word.to_upper())
-	score = wordScore[0]+wordScore[1]*score
+	score = (wordScore[0]+wordScore[1])*score
 	printScore(word,letterScores,rawWordScore,score)
 	await get_tree().create_timer(0.5).timeout
 	letterSelection.refreshLetters()

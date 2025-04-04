@@ -228,7 +228,7 @@ func scoreWord0(word):
 	
 func scoreLetter1(letter:String,word:String):
 	if(word.find(letter.to_upper(),word.find(letter.to_upper())+1)):
-		return [0,3]
+		return [0,4]
 	else:
 		return [0,1]
 func scoreWord1(word):
@@ -254,7 +254,7 @@ func scoreWord4(word):
 	return [0,1]
 
 func scoreLetter5(letter:String,word:String):
-	return [0,2]
+	return [0,3]
 func scoreWord5(word):
 	return [0,.5]
 
@@ -302,21 +302,21 @@ func buyAlbum4():
 func buyAlbum6():
 	var alphabet = Alphabet.getAlphabet()
 	for key in ["U","V","W","X","Y","Z"]:
-		alphabet[key] = [alphabet[key][0]+1,alphabet[key][1]+1]
+		alphabet[key] = [alphabet[key][0]+3,alphabet[key][1]+3]
 	Alphabet.setAlphabet(alphabet)
 
 func buyAlbum8():
 	var alphabet = Alphabet.getAlphabet()
 	for key in ["X"]:
-		alphabet[key] = [alphabet[key][0],alphabet[key][1]+6]
+		alphabet[key] = [alphabet[key][0],alphabet[key][1]+10]
 	Alphabet.setAlphabet(alphabet)
 func buyAlbum9():
 	var alphabet = Alphabet.getAlphabet()
 	for key in ["Y"]:
-		alphabet[key] = [alphabet[key][0],alphabet[key][1]+6]
+		alphabet[key] = [alphabet[key][0],alphabet[key][1]+10]
 	Alphabet.setAlphabet(alphabet)
 func buyAlbum10():
 	var alphabet = Alphabet.getAlphabet()
 	for key in ["Z"]:
-		alphabet[key] = [alphabet[key][0],alphabet[key][1]+6]
+		alphabet[key] = [alphabet[key][0],alphabet[key][1]+10]
 	Alphabet.setAlphabet(alphabet)
