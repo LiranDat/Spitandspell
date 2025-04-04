@@ -58,10 +58,11 @@ func getUsableLetters():
 	return usableLetters
 	
 func useLetter(l : String):
-	for letter in $LetterArea/Letters.get_children():
-		if letter.letter == l.to_upper() and letter.used == false:
-			letter.used = true
-			return true
+	if($LetterArea/Letters.get_child_count()):
+		for letter in $LetterArea/Letters.get_children():
+			if letter.letter == l.to_upper() and letter.used == false:
+				letter.used = true
+				return true
 	return false
 
 func refreshLetters():

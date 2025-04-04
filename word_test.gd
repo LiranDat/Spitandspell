@@ -9,7 +9,6 @@ const WORDFILE = "res://wordlist/wordlist-20210729.txt"
 const PREFIXFILE = "res://wordlist/prefixes_precalc.txt"
 
 func _ready():
-	prefixPreCalculate()
 	prefixPreLoad()
 	print(prefixTable)
 	pass
