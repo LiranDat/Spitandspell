@@ -72,5 +72,5 @@ func refreshLetters():
 				letter.used = false
 		
 func _on_timer_timeout() -> void:
-	distributeLetters(count)
+	#distributeLetters(count)
 	pass # Replace with function body.

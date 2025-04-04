@@ -23,6 +23,7 @@ func start_lyrics():
 	$music.play()
 	$music.volume_db = -1
 	$boombox.bounce()
+	$LetterSelection.distributeLetters(10)
 
 func start_shop():
 	add_child(shop.instantiate())
