@@ -54,7 +54,7 @@ func score_word(word:String) ->int:
 			letterScore = await albumCase.scoreLetter(letter,word)
 		score += letterScore[0]+letterScore[1]*alphabet[letter][0]
 		letterScores.push_back([letter,letterScore[0]+letterScore[1]*alphabet[letter][0]])
-		await get_tree().create_timer(.1).timeout
+		#await get_tree().create_timer(.1).timeout
 	var rawWordScore = score
 	var wordScore = await albumCase.scoreWord(word.to_upper())
 	score = wordScore[0]+wordScore[1]*score
