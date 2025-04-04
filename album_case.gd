@@ -75,4 +75,6 @@ func removeAlbum(album : Album):
 	albums.clear()
 	for ownedAlbum in ownedAlbums:
 		addAlbum(ownedAlbum)
-	
+
+func addMoney(money:float):
+	$Money.money += money
