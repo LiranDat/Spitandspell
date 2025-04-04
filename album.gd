@@ -31,16 +31,26 @@ func _process(delta: float) -> void:
 	pass
 
 func scoreLetter(letter:String, word:String):
-	if(albumNumber==0):
-		return scoreLetter0(letter,word)
+	if(scoreLetterFunctions.has(albumNumber)):
+		return scoreLetterFunctions[albumNumber].call(letter,word)
 	else:
 		return [0,1]
 	pass
 
 func scoreWord(word:String):
-	if(albumNumber==0):
-		return scoreWord0(word)
-	return [0,1]
+	if(scoreWordFunctions.has(albumNumber)):
+		return scoreWordFunctions[albumNumber].call(word)
+	else:
+		return [0,1]
+	pass
+	
+func buyAlbum():
+	if(!owned):
+		var case = get_tree().get_first_node_in_group("AlbumCase")
+		if(case):
+			if(!case.isFull()):
+				if(case.buyAlbum(self)):
+					owned = true
 	pass
 
 func updateAlbumInfo():
@@ -143,12 +153,7 @@ func _on_enter_area_input_event(viewport: Node, event: InputEvent, shape_idx: in
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			click()
-			if(!owned):
-				var case = get_tree().get_first_node_in_group("AlbumCase")
-				if(case):
-					if(!case.isFull()):
-						if(case.buyAlbum(self)):
-							owned = true
+			buyAlbum()
 	pass # Replace with function body.
 
 
@@ -171,6 +176,29 @@ func parseAlbums():
 		albums.append(album)
 	return albums
 	pass
+
+var scoreLetterFunctions = {
+	0:scoreLetter0,
+	1:scoreLetter1,
+	2:scoreLetter2,
+	3:scoreLetter3,
+	4:scoreLetter4,
+	5:scoreLetter5,
+	6:scoreLetter6
+	}
+var scoreWordFunctions =  {
+	0:scoreWord0,
+	1:scoreWord1,
+	2:scoreWord2,
+	3:scoreWord3,
+	4:scoreWord4,
+	5:scoreWord5,
+	6:scoreWord6
+	}
+var buyAlbumFunctions = {
+	4: buyAlbum4,
+	6: buyAlbum6
+}
 
 func scoreLetter0(letter,word):
 	if(vowels.find(letter)>=0):
@@ -217,3 +245,13 @@ func scoreLetter6(letter:String,word:String):
 func scoreWord6(word):
 	#if last word of repeat score x2
 	return [0,1]
+
+func buyAlbum4():
+	var alphabet = Alphabet.getAlphabet()
+	for key in ["A","E","I","O","U"]:
+		alphabet[key] = [alphabet[key][0],alphabet[key][1]+1]
+
+func buyAlbum6():
+	var alphabet = Alphabet.getAlphabet()
+	for key in ["U","V","W","X","Y","Z"]:
+		alphabet[key] = [alphabet[key][0]+1,alphabet[key][1]+1]

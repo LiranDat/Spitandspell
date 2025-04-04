@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://wcb8tud35qnq"]
+
+[ext_resource type="Script" uid="uid://kv71jijai4hh" path="res://letter_list.gd" id="1_mag0q"]
+[ext_resource type="FontFile" uid="uid://6ybbtdjigu8h" path="res://fonts/m6x11.ttf" id="2_2cr2o"]
+
+[node name="LetterList" type="Panel"]
+self_modulate = Color(0.219608, 0.0823529, 0.141176, 1)
+custom_minimum_size = Vector2(800, 400)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_mag0q")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(0.984314, 0.94902, 0.211765, 1)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_2cr2o")
+theme_override_font_sizes/font_size = 32
+text = "Close"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <root>
-    <album>
+	<album>
 		<id>0</id>
 		<title>Golden Record</title>
 		<description>Word score x2, but -1 for each vowel.</description>
@@ -43,7 +43,7 @@
 		<id>6</id>
 		<title>Sheet Music</title>
 		<description>Last word of each repeat scores x2.</description>
-		<subdescript>Adds one U,V,W,X,Y,Z<subdescript>
+		<subdescript>Adds one U,V,W,X,Y,Z and increases their score +1.<subdescript>
 		<price>20</price>
 	</album>	
 </root>

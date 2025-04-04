@@ -1,6 +1,6 @@
 class_name Alphabet extends Node
 
-static var data = { # [ Punkte, Häufigkeit ]
+const BASEALPHABET = { # [ Punkte, Häufigkeit ]
 	"A": [1, 9],
 	"B": [3, 2],
 	"C": [3, 2],
@@ -29,8 +29,13 @@ static var data = { # [ Punkte, Häufigkeit ]
 	"Z": [10, 1]
 }
 
+static var data = BASEALPHABET
+
 static func getAlphabet():
 	return data
 
 static func setAlphabet(newData):
 	data = newData
+
+static func resetAlphabet():
+	data = BASEALPHABET

@@ -2,6 +2,7 @@ extends Node2D
 
 var time = 0.0
 var tween : Tween
+var letterListScene = preload("res://letter_list.tscn")
 
 func _process(delta: float) -> void:
 	sway(delta)
@@ -23,3 +24,10 @@ func pop():
 	$Sprite2D.scale = Vector2(.4,.9)
 	tween.tween_property($Sprite2D,"scale",Vector2(1.0,1.0),1.0)
 	pass
+
+
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			get_tree().root.get_child(0).add_child(letterListScene.instantiate())
+	pass # Replace with function body.
