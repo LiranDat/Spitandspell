@@ -2,7 +2,7 @@ class_name WordTest extends Control
 var word : String
 var letterScene = preload("res://letter.tscn")
 var letters : = []
-static var prefixTable = {}
+static var prefixTable = loadDict(PREFIXFILE)
 
 const LETTERCHARACTERS = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 const WORDFILE = "res://wordlist/wordlist-20210729.txt"

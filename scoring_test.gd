@@ -6,6 +6,8 @@ func scoreWord(word:String):
 	var score = 0
 	var letterScores = []
 	var letterSelection : LetterSelection = get_tree().get_first_node_in_group("LetterSelection")
+	if(!WordTest.testWord(word)):
+		return 0
 	for letterIndex in word.length():
 		var letter = word[letterIndex].to_upper()		
 		var letterScore = [0,0]
@@ -18,7 +20,9 @@ func scoreWord(word:String):
 	var wordScore = await albumCase.scoreWord(word.to_upper())
 	score = wordScore[0]+wordScore[1]*score
 	printScore(word,letterScores,rawWordScore,score)
+	await get_tree().create_timer(0.5).timeout
 	letterSelection.refreshLetters()
+	return score
 	pass
 	
 func printScore(word,letterScores,rawWordScore,score):
