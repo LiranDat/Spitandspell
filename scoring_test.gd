@@ -34,4 +34,6 @@ func printScore(word,letterScores,rawWordScore,score):
 func _on_button_pressed() -> void:
 	print($Panel/TextEdit.text)
 	scoreWord($Panel/TextEdit.text)
+	if(WordTest.testBadWord($Panel/TextEdit.text)):
+		print($Panel/TextEdit.text + " is bad word")
 	pass # Replace with function body.

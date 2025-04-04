@@ -267,7 +267,8 @@ func scoreLetter7(letter:String,word:String):
 func scoreWord7(word):
 	if WordTest.testBadWord(word):
 		return [0,3]
-	return [0,1]
+	else:
+		return [0,1]
 	
 func scoreLetter8(letter:String,word:String):
 	if(letter.to_upper() == "X"):

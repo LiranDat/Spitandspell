@@ -1,6 +1,6 @@
 extends Node2D
 var time = 0.0
-var money : int = 100:
+var money : int = Globals.STARTINGMONEY:
 	set(value):
 		money = value
 		$Bill/Label.text = str(money)
