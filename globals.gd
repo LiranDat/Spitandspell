@@ -1,3 +1,3 @@
 class_name Globals extends Node
 
-static var ALBUMCOUNT = 11
+static var ALBUMCOUNT = 10
