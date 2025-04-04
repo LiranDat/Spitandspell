@@ -40,6 +40,7 @@ position = Vector2(969, 145)
 scale = Vector2(2, 2)
 
 [node name="AlbumCase" parent="." instance=ExtResource("4_l3cfh")]
+z_index = 10
 position = Vector2(1006, 516)
 
 [node name="LetterSelection" parent="." instance=ExtResource("5_6q06x")]
