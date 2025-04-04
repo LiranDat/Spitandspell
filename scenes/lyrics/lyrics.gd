@@ -32,14 +32,6 @@ func _ready() -> void:
 func score_letter_old(letter: String) -> int:
 	return alphabet[letter][0]
 
-func word_exists(word: String) -> bool:
-	var file = FileAccess.open("res://wordlist/wordlist-20210729.txt", FileAccess.READ)
-	var content = file.get_as_text()
-	var searchString = "\"" + word + "\""
-	if(content.findn(searchString)>0):
-		return true
-	return false
-
 func score_word(word:String) ->int:
 	var alphabet = Alphabet.getAlphabet()
 	var albumCase = get_tree().get_first_node_in_group("AlbumCase")
@@ -79,7 +71,7 @@ func score():
 	
 	current_word = ""
 	
-	if word_exists(scoring_word):
+	if WordTest.testWord(scoring_word):
 		current_sum = await score_word(scoring_word)
 		
 		var instance1 = new_score.instantiate()
