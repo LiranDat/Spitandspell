@@ -103,6 +103,7 @@ func end_round():
 	if total_sum < target_score:
 		get_parent().lose()
 	else:
+		get_parent().last_score = total_sum
 		get_parent().start_shop()
 	self.queue_free()
 

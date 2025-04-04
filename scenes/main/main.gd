@@ -8,6 +8,8 @@ var lyrics = preload("res://scenes/lyrics/lyrics.tscn")
 var shop = preload("res://shop.tscn")
 var start_button = preload("res://scenes/start_button/start_button.tscn")
 
+var last_score = 0
+
 func _ready() -> void:
 	var button = start_button.instantiate()
 	add_child(button)
