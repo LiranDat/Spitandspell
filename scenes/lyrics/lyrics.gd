@@ -82,7 +82,7 @@ func score():
 		
 		total_sum += current_sum
 		
-		if current_sum > 9:
+		if current_sum > (target_score / 2):
 			$ooh.play()
 			add_child(fire.instantiate())
 	
