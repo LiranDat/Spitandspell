@@ -26,7 +26,10 @@ func start_lyrics():
 	$LetterSelection.distributeLetters(10)
 
 func start_shop():
-	add_child(shop.instantiate())
+	var ding = shop.instantiate()
+	add_child(ding)
+	ding.position.x = 200
+	ding.position.y = 200
 	$music.volume_db = -7
 
 func close_shop():
