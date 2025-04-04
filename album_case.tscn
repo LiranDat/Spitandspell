@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://77lr31d7he8j" path="res://money.tscn" id="2_k6kkq"]
 
 [node name="AlbumCase" type="Node2D" groups=["AlbumCase"]]
+z_index = 10
+z_as_relative = false
 script = ExtResource("1_ea5sd")
 
 [node name="Money" parent="." instance=ExtResource("2_k6kkq")]
