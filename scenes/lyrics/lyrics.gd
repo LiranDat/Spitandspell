@@ -19,6 +19,7 @@ var words_per_round = 8
 var rounds_per_shop = 1
 var word_count = 0
 var round_count = 0
+var round_active = false
 
 # TTS
 var voices = DisplayServer.tts_get_voices_for_language("en")
@@ -28,6 +29,7 @@ func _ready() -> void:
 	past_word = preload("res://scenes/past_word/past_word.tscn")
 	new_score = preload("res://scenes/new_score/new_score.tscn")
 	fire = preload("res://scenes/fire/fire.tscn")
+	$metronome.count()
 
 func score_letter_old(letter: String) -> int:
 	return alphabet[letter][0]
@@ -105,9 +107,9 @@ func end_round():
 	self.queue_free()
 
 func _input(event):
-	if event.as_text() in alphabet and event.pressed:
+	if event.as_text() in alphabet and event.pressed and round_active:
 		current_word += event.as_text()
-	elif event.as_text() == "Backspace" and event.pressed:
+	elif event.as_text() == "Backspace" and event.pressed and round_active:
 		current_word = current_word.left(-1)
 
 func _process(delta: float) -> void:
@@ -117,7 +119,12 @@ func _process(delta: float) -> void:
 	if timer > 0:
 		timer -= delta
 	else:
-		score()
+		if round_active:
+			score()
+		else:
+			round_active = true
+			$"../music".play()
+			$"../boombox".bounce()
 		timer = 2.4
 	
 	$timer_bar.value = timer
