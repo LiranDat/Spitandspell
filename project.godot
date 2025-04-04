@@ -25,11 +25,9 @@ general/text_to_speech=true
 
 [display]
 
-window/size/resizable=false
-window/stretch/mode="canvas_items"
+window/size/mode=3
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
-window/stretch/scale=1.5
-window/stretch/scale_mode="integer"
 
 [global_group]
 
