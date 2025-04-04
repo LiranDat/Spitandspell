@@ -9,6 +9,7 @@ var past_word
 var new_score
 var timer = 2.4
 var fire
+var scoring_word = ""
 
 # benötigte Punkte
 var target_score = 0
@@ -31,14 +32,6 @@ func _ready() -> void:
 func score_letter_old(letter: String) -> int:
 	return alphabet[letter][0]
 
-func word_exists(word: String) -> bool:
-	var file = FileAccess.open("res://wordlist/wordlist-20210729.txt", FileAccess.READ)
-	var content = file.get_as_text()
-	var searchString = "\"" + word + "\""
-	if(content.findn(searchString)>0):
-		return true
-	return false
-
 func score_word(word:String) ->int:
 	var alphabet = Alphabet.getAlphabet()
 	var albumCase = get_tree().get_first_node_in_group("AlbumCase")
@@ -48,7 +41,7 @@ func score_word(word:String) ->int:
 	if(!WordTest.testWord(word)):
 		return 0
 	for letterIndex in word.length():
-		var letter = word[letterIndex].to_upper()		
+		var letter = word[letterIndex].to_upper()
 		var letterScore = [0,0]
 		if letterSelection.useLetter(letter):
 			letterScore = await albumCase.scoreLetter(letter,word)
@@ -68,9 +61,18 @@ func score():
 	$"../boombox".bounce()
 	
 	current_sum = 0
+	scoring_word = current_word
 	
-	if word_exists(current_word):
-		current_sum = await score_word(current_word)
+	var instance = past_word.instantiate()
+	instance.text = current_word
+	add_child(instance)
+	
+	DisplayServer.tts_speak(scoring_word, voice_id)
+	
+	current_word = ""
+	
+	if WordTest.testWord(scoring_word):
+		current_sum = await score_word(scoring_word)
 		
 		var instance1 = new_score.instantiate()
 		instance1.text = "+" + str(current_sum)
@@ -89,12 +91,6 @@ func score():
 		instance1.text = "FAIL"
 		add_child(instance1)
 	
-	var instance = past_word.instantiate()
-	instance.text = current_word
-	add_child(instance)
-	
-	DisplayServer.tts_speak(current_word, voice_id)
-	
 	word_count += 1
 	if word_count == words_per_round:
 		round_count += 1
@@ -102,8 +98,6 @@ func score():
 	
 	if round_count == rounds_per_shop:
 		end_round()
-	
-	current_word = ""
 
 func end_round():
 	get_parent().start_shop()
