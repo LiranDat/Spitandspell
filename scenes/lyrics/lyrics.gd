@@ -9,6 +9,7 @@ var past_word
 var new_score
 var timer = 2.4
 var fire
+var scoring_word = ""
 
 # benötigte Punkte
 var target_score = 0
@@ -68,9 +69,18 @@ func score():
 	$"../boombox".bounce()
 	
 	current_sum = 0
+	scoring_word = current_word
 	
-	if word_exists(current_word):
-		current_sum = await score_word(current_word)
+	var instance = past_word.instantiate()
+	instance.text = current_word
+	add_child(instance)
+	
+	DisplayServer.tts_speak(scoring_word, voice_id)
+	
+	current_word = ""
+	
+	if word_exists(scoring_word):
+		current_sum = await score_word(scoring_word)
 		
 		var instance1 = new_score.instantiate()
 		instance1.text = "+" + str(current_sum)
@@ -89,12 +99,6 @@ func score():
 		instance1.text = "FAIL"
 		add_child(instance1)
 	
-	var instance = past_word.instantiate()
-	instance.text = current_word
-	add_child(instance)
-	
-	DisplayServer.tts_speak(current_word, voice_id)
-	
 	word_count += 1
 	if word_count == words_per_round:
 		round_count += 1
@@ -102,8 +106,6 @@ func score():
 	
 	if round_count == rounds_per_shop:
 		end_round()
-	
-	current_word = ""
 
 func end_round():
 	get_parent().start_shop()
