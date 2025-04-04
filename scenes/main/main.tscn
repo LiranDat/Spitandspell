@@ -12,24 +12,23 @@ script = ExtResource("1_hyk8p")
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_iuonh")
 
-[node name="Node2D" type="Node2D" parent="."]
-visible = false
+[node name="background" type="Node2D" parent="."]
 
-[node name="background" type="Polygon2D" parent="Node2D"]
+[node name="background1" type="Polygon2D" parent="background"]
 color = Color(1, 0.5, 0.5, 1)
 polygon = PackedVector2Array(336, -103, -120, -46, -78, 741, 320, 739)
 
-[node name="background2" type="Polygon2D" parent="Node2D"]
+[node name="background2" type="Polygon2D" parent="background"]
 position = Vector2(309, -2)
 color = Color(1, 0.716667, 0.5, 1)
 polygon = PackedVector2Array(336, -103, 25, -59, -163, 743, 320, 739)
 
-[node name="background3" type="Polygon2D" parent="Node2D"]
+[node name="background3" type="Polygon2D" parent="background"]
 position = Vector2(653, -6)
 color = Color(1, 0.916667, 0.5, 1)
 polygon = PackedVector2Array(336, -103, -120, -46, -266, 754, 320, 739)
 
-[node name="background4" type="Polygon2D" parent="Node2D"]
+[node name="background4" type="Polygon2D" parent="background"]
 position = Vector2(928, -1)
 color = Color(0.891667, 1, 0.5, 1)
 polygon = PackedVector2Array(336, -103, -120, -46, -266, 754, 320, 739)
