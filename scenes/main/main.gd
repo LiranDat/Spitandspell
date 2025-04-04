@@ -16,13 +16,12 @@ func _ready() -> void:
 	button.position.y = 300
 
 func start_lyrics():
+	$info.visible = false
 	level_counter += 1
 	var level = lyrics.instantiate()
 	add_child(level)
 	level.target_score = target_scores[level_counter]
-	#$music.play()
 	$music.volume_db = -1
-	#$boombox.bounce()
 	$LetterSelection.distributeLetters(10)
 
 func start_shop():
@@ -41,6 +40,3 @@ func lose():
 	tween.tween_property($music, "pitch_scale", 0, 1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	
 	$boo.play()
-
-func _process(delta: float) -> void:
-	pass

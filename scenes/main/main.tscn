@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://gai0xjg0pvo8"]
+[gd_scene load_steps=8 format=3 uid="uid://gai0xjg0pvo8"]
 
 [ext_resource type="Script" uid="uid://cb0h1ibnx7uyq" path="res://scenes/main/main.gd" id="1_hyk8p"]
 [ext_resource type="AudioStream" uid="uid://bra65x8j1ai1c" path="res://sounds/gamejam_boombap.wav" id="2_iuonh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b56orn6gpj15h" path="res://album_case.tscn" id="4_l3cfh"]
 [ext_resource type="PackedScene" uid="uid://d14bd2ryyhrdr" path="res://letter_selection.tscn" id="5_6q06x"]
 [ext_resource type="AudioStream" uid="uid://dyv78ibi2l8bj" path="res://sounds/boo.mp3" id="6_ow5a4"]
+[ext_resource type="FontFile" uid="uid://6ybbtdjigu8h" path="res://fonts/m6x11.ttf" id="7_hujxm"]
 
 [node name="main" type="Node"]
 script = ExtResource("1_hyk8p")
@@ -49,3 +50,16 @@ position = Vector2(116, 359)
 [node name="boo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_ow5a4")
 volume_db = -7.495
+
+[node name="info" type="RichTextLabel" parent="."]
+offset_left = 440.0
+offset_top = 478.0
+offset_right = 750.0
+offset_bottom = 691.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_hujxm")
+theme_override_font_sizes/normal_font_size = 16
+text = "At the beginning of each round scrabble tiles will appear. You can score points by using these letters to form words. Every 2.4 Seconds the word you typed will be scored automatically. Every round consists of 8 opportunities to score. If you reach the target score you will enter the shop and afterwards andvance to the next round. If you don't you lose.
+
+Good luck and keep the rhymes flowing!"
+horizontal_alignment = 1
