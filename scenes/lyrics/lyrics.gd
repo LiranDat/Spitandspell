@@ -1,6 +1,6 @@
 extends RichTextLabel
 
-@onready var abc = get_parent().abc
+@onready var alphabet = Alphabet.getAlphabet()
 
 var current_word = ""
 var current_sum = 0
@@ -29,7 +29,7 @@ func _ready() -> void:
 	fire = preload("res://scenes/fire/fire.tscn")
 
 func score_letter(letter: String) -> int:
-	return abc[letter][0]
+	return alphabet[letter][0]
 
 func word_exists(word: String) -> bool:
 	var file = FileAccess.open("res://wordlist/wordlist-20210729.txt", FileAccess.READ)
@@ -88,7 +88,7 @@ func end_round():
 	self.queue_free()
 
 func _input(event):
-	if event.as_text() in abc and event.pressed:
+	if event.as_text() in alphabet and event.pressed:
 		current_word += event.as_text()
 	elif event.as_text() == "Space" and event.pressed:
 		score()
