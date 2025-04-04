@@ -49,7 +49,7 @@ func score_word(word:String) ->int:
 	if(!WordTest.testWord(word)):
 		return 0
 	for letterIndex in word.length():
-		var letter = word[letterIndex].to_upper()		
+		var letter = word[letterIndex].to_upper()
 		var letterScore = [0,0]
 		if letterSelection.useLetter(letter):
 			letterScore = await albumCase.scoreLetter(letter,word)
