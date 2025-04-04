@@ -27,6 +27,7 @@ func createLetterDeck(alphabet:Dictionary):
 	
 func distributeLetters(count):
 	usableLetters.clear()
+	print("distributing")
 	while $LetterArea/Letters.get_child_count()>0:
 		var letter = $LetterArea/Letters.get_child(0)
 		letter.reparent($MicPos/LetterDeck)
