@@ -51,3 +51,24 @@ func addAlbum(album : Album):
 	if(albums.size() >= MAXSIZE):
 		full = true
 	pass
+
+func sellAlbum(album:Album):
+	if $Money.money > album.price:
+		$Money.money += album.price
+	removeAlbum(album)
+
+func removeAlbum(album : Album):
+	if(albums.find(album)>0):
+		print(albums.find(album))
+		albums[albums.find(album)]=null
+	full = false
+	var ownedAlbums = []
+	while(albums.size()>0):
+		if(albums[0]!=null):
+			ownedAlbums.push_back(albums[0])
+		albums.pop_front()
+	print(ownedAlbums.size())
+	albums.clear()
+	for ownedAlbum in ownedAlbums:
+		addAlbum(ownedAlbum)
+	
