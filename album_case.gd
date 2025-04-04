@@ -5,6 +5,9 @@ const MAXSIZE = 4
 var full = false
 const positions = [Vector2(36,40),Vector2(108,40),Vector2(36,104),Vector2(108,104)]
 
+func _ready():
+	$Money.money = Globals.STARTINGMONEY
+	
 func _process(delta: float) -> void:
 	$SignPolygon.skew = sin(time*.5)/100.0*2.0
 	$SignPolygon2.skew = -sin(time*.5)/100.0*5.0
@@ -55,8 +58,7 @@ func addAlbum(album : Album):
 	pass
 
 func sellAlbum(album:Album):
-	if $Money.money > album.price:
-		$Money.money += album.price
+	$Money.money += album.price
 	removeAlbum(album)
 
 func removeAlbum(album : Album):
