@@ -12,7 +12,6 @@ bg_color = Color(0.390896, 0.235825, 0.509861, 1)
 
 [node name="Shop" type="Node2D"]
 z_index = 10
-z_as_relative = false
 script = ExtResource("1_e7rdd")
 
 [node name="Visuals" type="Node2D" parent="."]
