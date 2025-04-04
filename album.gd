@@ -1,5 +1,5 @@
 class_name Album extends Node2D
-@export var owned : bool = false
+var owned : bool = false
 
 var albumNumber : int = 0:
 	set(value):
@@ -108,7 +108,6 @@ func click():
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property($Album,"scale",Vector2(1.3,1.3),.25)
 	tween.tween_property($Album,"scale",Vector2(1.2,1.2),.25)
-	print("click")
 	pass
 
 func start_tween() -> void:
@@ -145,7 +144,6 @@ func _on_enter_area_input_event(viewport: Node, event: InputEvent, shape_idx: in
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			click()
 			if(!owned):
-				print("Buying album")
 				var case = get_tree().get_first_node_in_group("AlbumCase")
 				if(case):
 					if(!case.isFull()):
