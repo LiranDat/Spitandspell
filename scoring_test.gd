@@ -1,6 +1,6 @@
 extends Node2D
 
-func scoreWord(word:String):
+func scoreWord(word:String) ->int:
 	var alphabet = Alphabet.getAlphabet()
 	var albumCase = get_tree().get_first_node_in_group("AlbumCase")
 	var score = 0
@@ -22,7 +22,7 @@ func scoreWord(word:String):
 	printScore(word,letterScores,rawWordScore,score)
 	await get_tree().create_timer(0.5).timeout
 	letterSelection.refreshLetters()
-	return score
+	return int(score)
 	pass
 	
 func printScore(word,letterScores,rawWordScore,score):
