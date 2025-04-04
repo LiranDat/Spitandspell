@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://gai0xjg0pvo8"]
+[gd_scene load_steps=9 format=3 uid="uid://gai0xjg0pvo8"]
 
 [ext_resource type="Script" uid="uid://cb0h1ibnx7uyq" path="res://scenes/main/main.gd" id="1_hyk8p"]
 [ext_resource type="AudioStream" uid="uid://bra65x8j1ai1c" path="res://sounds/gamejam_boombap.wav" id="2_iuonh"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d14bd2ryyhrdr" path="res://letter_selection.tscn" id="5_6q06x"]
 [ext_resource type="AudioStream" uid="uid://dyv78ibi2l8bj" path="res://sounds/boo.mp3" id="6_ow5a4"]
 [ext_resource type="FontFile" uid="uid://6ybbtdjigu8h" path="res://fonts/m6x11.ttf" id="7_hujxm"]
+[ext_resource type="PackedScene" uid="uid://b715lkrehpwd0" path="res://title.tscn" id="8_yyfjg"]
 
 [node name="main" type="Node"]
 script = ExtResource("1_hyk8p")
@@ -41,7 +42,6 @@ position = Vector2(969, 145)
 scale = Vector2(2, 2)
 
 [node name="AlbumCase" parent="." instance=ExtResource("4_l3cfh")]
-z_index = 10
 position = Vector2(1006, 516)
 
 [node name="LetterSelection" parent="." instance=ExtResource("5_6q06x")]
@@ -63,3 +63,20 @@ text = "At the beginning of each round scrabble tiles will appear. You can score
 
 Good luck and keep the rhymes flowing!"
 horizontal_alignment = 1
+
+[node name="TitlePlacement" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="TitlePlacement"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" parent="TitlePlacement/Control" instance=ExtResource("8_yyfjg")]
+position = Vector2(608, 152)
