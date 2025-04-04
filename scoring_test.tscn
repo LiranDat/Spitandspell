@@ -28,16 +28,15 @@ position = Vector2(266, 218)
 position = Vector2(-676, -19)
 
 [node name="LetterArea" parent="LetterSelection" index="1"]
-position = Vector2(-265, -136)
+position = Vector2(-434, -145)
 
 [node name="Shape" parent="LetterSelection/LetterArea" index="0"]
-position = Vector2(-166, -54)
 polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0.905198, 1, 0.704366, 1, 0, 1)
 
-[node name="AlbumCase" parent="LetterSelection/LetterArea" index="1" instance=ExtResource("2_krsl8")]
-position = Vector2(368, 81)
+[node name="Letters" type="Node2D" parent="LetterSelection/LetterArea" index="1"]
 
-[node name="Letters" type="Node2D" parent="LetterSelection/LetterArea" index="2"]
+[node name="AlbumCase" parent="LetterSelection" instance=ExtResource("2_krsl8")]
+position = Vector2(96, -24)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

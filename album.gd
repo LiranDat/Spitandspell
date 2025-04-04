@@ -173,7 +173,7 @@ func parseAlbums():
 	pass
 
 func scoreLetter0(letter,word):
-	if(vowels.find(letter)>0):
+	if(vowels.find(letter)>=0):
 		return [-1,1]
 	else:
 		return [0,1]
