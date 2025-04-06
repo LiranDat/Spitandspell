@@ -24,6 +24,7 @@ func scoreLetter(letter : String, word : String):
 	for album in albums:
 		if(album):
 			var albumScore = await album.scoreLetter(letter,word)
+			print(albumScore[1])
 			score = [score[0]+albumScore[0],score[1]*albumScore[1]]
 	return score
 	pass
