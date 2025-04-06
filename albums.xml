@@ -10,13 +10,13 @@
 	<album>
 		<id>1</id>
 		<title>Copy</title>
-		<description>Each time a letter is used twice, it scores 4x.</description>
+		<description>Each time a letter is used twice, word scores x3.</description>
 		<price>30</price>
 	</album>
 	<album>
 		<id>2</id>
 		<title>Cassette</title>
-		<description>Score x3 if word length less than 3.</description>
+		<description>Score x3 if word length less than 4.</description>
 		<price>30</price>
 	</album>
 	<album>

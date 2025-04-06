@@ -229,17 +229,22 @@ func scoreWord0(word):
 	return [0,2]
 	
 func scoreLetter1(letter:String,word:String):
-	if(word.find(letter.to_upper(),word.find(letter.to_upper())+1)):
-		return [0,4]
-	else:
-		return [0,1]
-func scoreWord1(word):
 	return [0,1]
+func scoreWord1(word:String):
+	var letters = {
+	}
+	for index in range(word.length()):
+		letters.get_or_add(word[index])
+	var duplicates = 1
+	for letter in letters.keys():
+		if(word.count(letter.to_upper())>=2):
+			duplicates=duplicates*4
+	return [0,duplicates]
 
 func scoreLetter2(letter:String,word:String):
 	return [0,1]
 func scoreWord2(word):
-	if(word.length()<=3):
+	if(word.length()<=4):
 		return [0,3]
 	return [0,1]
 
