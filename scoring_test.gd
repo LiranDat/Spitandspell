@@ -48,3 +48,13 @@ func _on_button_pressed() -> void:
 func _on_button_2_pressed():
 	$LetterSelection.distributeLetters(10)
 	pass # Replace with function body.
+
+
+func _on_button_3_pressed():
+	$Shop._ready()
+	pass # Replace with function body.
+
+
+func _on_button_4_pressed():
+	$LetterSelection/AlbumCase/Money.money = 200
+	pass # Replace with function body.

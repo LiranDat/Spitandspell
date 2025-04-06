@@ -55,7 +55,23 @@ offset_right = 489.0
 offset_bottom = -205.0
 text = "Redistribute letters"
 
+[node name="Button3" type="Button" parent="."]
+offset_left = 327.0
+offset_top = -172.0
+offset_right = 447.0
+offset_bottom = -120.0
+text = "restock shop"
+
+[node name="Button4" type="Button" parent="."]
+offset_left = 360.0
+offset_top = -79.0
+offset_right = 456.0
+offset_bottom = -48.0
+text = "Add Money"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]
 
 [editable path="LetterSelection"]

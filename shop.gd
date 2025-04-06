@@ -3,6 +3,9 @@ var albumScene = preload("res://album.tscn")
 signal shop_closed
 
 func _ready():
+	for album in $Albums.get_children():
+		album.queue_free()
+		await album.tree_exited
 	for i in range(3):
 		var album = albumScene.instantiate()
 		album.albumNumber=randi_range(0,Globals.ALBUMCOUNT) 

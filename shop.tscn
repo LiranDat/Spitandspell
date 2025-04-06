@@ -31,8 +31,7 @@ text = "S"
 
 [node name="Shadow" type="Label" parent="Visuals/Letters/S"]
 modulate = Color(0, 0, 0, 1)
-z_index = 6
-z_as_relative = false
+show_behind_parent = true
 layout_mode = 0
 offset_left = 5.0
 offset_top = 7.0
@@ -54,8 +53,7 @@ text = "H"
 
 [node name="Shadow" type="Label" parent="Visuals/Letters/H"]
 modulate = Color(0, 0, 0, 1)
-z_index = 6
-z_as_relative = false
+show_behind_parent = true
 layout_mode = 0
 offset_left = 5.0
 offset_top = 7.0
@@ -77,8 +75,7 @@ text = "O"
 
 [node name="Shadow" type="Label" parent="Visuals/Letters/O"]
 modulate = Color(0, 0, 0, 1)
-z_index = 6
-z_as_relative = false
+show_behind_parent = true
 layout_mode = 0
 offset_left = 5.0
 offset_top = 7.0
@@ -100,8 +97,7 @@ text = "P"
 
 [node name="Shadow" type="Label" parent="Visuals/Letters/P"]
 modulate = Color(0, 0, 0, 1)
-z_index = 6
-z_as_relative = false
+show_behind_parent = true
 layout_mode = 0
 offset_left = 5.0
 offset_top = 7.0

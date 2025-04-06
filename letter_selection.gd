@@ -17,7 +17,6 @@ func _ready():
 func createLetterDeck(alphabet:Dictionary):
 	var index = 0
 	for letter in alphabet.keys():
-		print(letter + ": count [" + str(alphabet[letter][1]) +"] + score["+ str(alphabet[letter][0])+"]")
 		for count in alphabet[letter][1]:
 			var letterInstance : Letter
 			if(index<letterDeck.get_child_count()):
@@ -26,20 +25,15 @@ func createLetterDeck(alphabet:Dictionary):
 				letterInstance = letterScene.instantiate()
 				letterDeck.add_child(letterInstance)
 				letterInstance.hide()
-			if(letterInstance):
-				letterInstance.letter = letter
-				letterInstance.score = alphabet[letter][0]
-				print("exists")
+			letterInstance.letter = letter
+			letterInstance.score = alphabet[letter][0]
 			index +=1
 	pass
 	
 func distributeLetters(count):
 	usableLetters.clear()
-	print("distributing")
 	for letter in letterNode.get_children():
-		letter.reparent(letterDeck)
-		letter.hide()
-		letter.position = Vector2()
+		letter.queue_free()
 	createLetterDeck(Alphabet.getAlphabet())
 	var letters = []
 	for index in range(count):
@@ -61,10 +55,9 @@ func distributeLetters(count):
 		var yPos = 64.0*float(int(index/letterAreaSize.x))+16.0
 		tween.tween_property(letter,"position",Vector2(xPos,yPos),1.0)
 		letter.show()
+		letter.refreshDescriptions()
 		$MicPos/Mic.pop()
 		await get_tree().create_timer(0.1).timeout
-	print("Distributed Letters: " + str(letterNode.get_child_count()))
-	print("Letter Deck: " + str(letterDeck.get_child_count()))
 	pass
 
 func lettersort(a:Letter,b:Letter):

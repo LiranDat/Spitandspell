@@ -34,6 +34,10 @@ func _process(delta: float) -> void:
 	self.modulate.a = alpha
 	pass
 
+func refreshDescriptions():
+	$Letter/Text.text = letter
+	$Letter/Score.text = str(score)
+	
 func appear():
 	var tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT)
