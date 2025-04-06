@@ -23,6 +23,7 @@ offset_bottom = 96.0
 
 [node name="LetterSelection" parent="." instance=ExtResource("2_7iipe")]
 position = Vector2(248, 168)
+letterAreaSize = null
 
 [node name="MicPos" parent="LetterSelection" index="0"]
 position = Vector2(-676, -19)

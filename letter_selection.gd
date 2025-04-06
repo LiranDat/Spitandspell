@@ -3,45 +3,53 @@ class_name LetterSelection extends Node2D
 var letterScene = preload("res://letter.tscn")
 @export var letterAreaSize : Vector2i = Vector2i(5,2)
 var count = 0
+@onready var letterNode : Node2D = $LetterArea/Letters
+@onready var letterDeck : Node2D = $MicPos/LetterDeck
 
 var usableLetters = []
 
 func _ready():
 	$LetterArea/Shape.hide()
 	count = letterAreaSize.x*letterAreaSize.y
-	createLetterDeck(Alphabet.getAlphabet())
 	$LetterArea/Shape.scale = Vector2(64.,64.)*Vector2(letterAreaSize)
 	pass
 
 func createLetterDeck(alphabet:Dictionary):
-	var letterDeck = []
+	var index = 0
 	for letter in alphabet.keys():
-		#print(letter + ": count [" + str(alphabet[letter][1]) +"] + score["+ str(alphabet[letter][0])+"]")
+		print(letter + ": count [" + str(alphabet[letter][1]) +"] + score["+ str(alphabet[letter][0])+"]")
 		for count in alphabet[letter][1]:
-			var letterInstance = letterScene.instantiate()
-			letterInstance.letter = letter
-			letterInstance.score = alphabet[letter][0]
-			$MicPos/LetterDeck.add_child(letterInstance)
-			letterInstance.hide()
+			var letterInstance : Letter
+			if(index<letterDeck.get_child_count()):
+				letterInstance = letterDeck.get_child(index)
+			else:
+				letterInstance = letterScene.instantiate()
+				letterDeck.add_child(letterInstance)
+				letterInstance.hide()
+			if(letterInstance):
+				letterInstance.letter = letter
+				letterInstance.score = alphabet[letter][0]
+				print("exists")
+			index +=1
 	pass
 	
 func distributeLetters(count):
 	usableLetters.clear()
 	print("distributing")
-	while $LetterArea/Letters.get_child_count()>0:
-		var letter = $LetterArea/Letters.get_child(0)
-		letter.reparent($MicPos/LetterDeck)
+	for letter in letterNode.get_children():
+		letter.reparent(letterDeck)
 		letter.hide()
-		letter.position = Vector2(0.0,0.0)
+		letter.position = Vector2()
+	createLetterDeck(Alphabet.getAlphabet())
 	var letters = []
 	for index in range(count):
-		var childCount = $MicPos/LetterDeck.get_child_count()
+		var childCount = letterDeck.get_child_count()
 		if(childCount <= 0):
 			return
-		var childIndex = randi_range(0,$MicPos/LetterDeck.get_child_count()-1)
-		var letter = $MicPos/LetterDeck.get_child(childIndex)
+		var childIndex = randi_range(0,letterDeck.get_child_count()-1)
+		var letter = letterDeck.get_child(childIndex)
 		letters.append(letter)
-		letter.reparent($LetterArea/Letters)
+		letter.reparent(letterNode)
 	letters.sort_custom(lettersort)
 	for index in range(letters.size()):
 		var letter = letters[index]
@@ -55,6 +63,8 @@ func distributeLetters(count):
 		letter.show()
 		$MicPos/Mic.pop()
 		await get_tree().create_timer(0.1).timeout
+	print("Distributed Letters: " + str(letterNode.get_child_count()))
+	print("Letter Deck: " + str(letterDeck.get_child_count()))
 	pass
 
 func lettersort(a:Letter,b:Letter):
@@ -64,16 +74,16 @@ func getUsableLetters():
 	return usableLetters
 	
 func useLetter(l : String):
-	if($LetterArea/Letters and $LetterArea/Letters.get_child_count()>0):
-		for letter in $LetterArea/Letters.get_children():
+	if(letterNode and letterNode.get_child_count()>0):
+		for letter in letterNode.get_children():
 			if letter.letter == l.to_upper() and letter.used == false:
 				letter.used = true
 				return true
 	return false
 
 func refreshLetters():
-	if($LetterArea/Letters and $LetterArea/Letters.get_child_count()>0):
-		for letter in $LetterArea/Letters.get_children():
+	if(letterNode and letterNode.get_child_count()>0):
+		for letter in letterNode.get_children():
 				letter.used = false
 		
 func _on_timer_timeout() -> void:

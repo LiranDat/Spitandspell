@@ -12,7 +12,6 @@ const ALBUMFILE = "res://albums.xml"
 
 const ALBUMATTRIBUTES = ["id","title","description","subdescript","price"]
 const vowels = ["A","E","I","O","U"]
-var time = 0.0
 var tween : Tween
 var hovering : bool = false
 var currentState : bool = false
@@ -112,10 +111,9 @@ func shrink():
 	pass
 
 func sway(delta):
-	$Album.position.y = sin(time)*6.0
-	$Album.rotation = cos(time*.3)*1.0/PI
-	$Tooltip.position.y = sin(time*1.5)*3.0
-	time+=delta
+	$Album.position.y = sin(Globals.time)*6.0
+	$Album.rotation = cos(Globals.time*.3)*1.0/PI
+	$Tooltip.position.y = sin(Globals.time*1.5)*3.0
 	pass
 
 func click():
@@ -296,7 +294,7 @@ func scoreWord10(word):
 func buyAlbum4():
 	var alphabet = Alphabet.getAlphabet()
 	for key in ["A","E","I","O","U"]:
-		alphabet[key] = [alphabet[key][0],alphabet[key][1]+1]
+		alphabet[key] = [alphabet[key][0]+1,alphabet[key][1]+1]
 	Alphabet.setAlphabet(alphabet)
 
 func buyAlbum6():
@@ -308,15 +306,15 @@ func buyAlbum6():
 func buyAlbum8():
 	var alphabet = Alphabet.getAlphabet()
 	for key in ["X"]:
-		alphabet[key] = [alphabet[key][0],alphabet[key][1]+10]
+		alphabet[key] = [alphabet[key][0]+1,alphabet[key][1]+10]
 	Alphabet.setAlphabet(alphabet)
 func buyAlbum9():
 	var alphabet = Alphabet.getAlphabet()
 	for key in ["Y"]:
-		alphabet[key] = [alphabet[key][0],alphabet[key][1]+10]
+		alphabet[key] = [alphabet[key][0]+1,alphabet[key][1]+10]
 	Alphabet.setAlphabet(alphabet)
 func buyAlbum10():
 	var alphabet = Alphabet.getAlphabet()
 	for key in ["Z"]:
-		alphabet[key] = [alphabet[key][0],alphabet[key][1]+10]
+		alphabet[key] = [alphabet[key][0]+1,alphabet[key][1]+10]
 	Alphabet.setAlphabet(alphabet)

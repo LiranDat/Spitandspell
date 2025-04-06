@@ -1,5 +1,4 @@
 class_name Letter extends Node2D
-var time = 0.0
 var spawn = true
 var alpha : float = 1.0
 var used : bool = false:
@@ -13,8 +12,14 @@ var used : bool = false:
 			tween.tween_property(self,"alpha",.5,1.0)
 		used = value
 		
-@export var letter : String = "A"
-@export var score : int = 1
+@export var letter : String = "A":
+	set(value):
+		$Letter/Text.text = value
+		letter = value
+@export var score : int = 1:
+	set(value):
+		$Letter/Score.text = str(score)
+		score = value
 
 var swayEnabled = true
 
@@ -46,9 +51,8 @@ func shake():
 	pass
 	
 func sway(delta):
-	$Letter.position.y = sin(time)*6.0
-	rotation = cos(time*.3)*1.0/PI
-	time+=delta
+	$Letter.position.y = sin(Globals.time)*6.0
+	rotation = cos(Globals.time*.3)*1.0/PI
 	pass
 	
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:

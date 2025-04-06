@@ -1,5 +1,8 @@
 extends Node2D
 
+func _process(delta):
+	Globals.time += delta
+	
 func _ready():
 	Alphabet.setAlphabet(Alphabet.BASEALPHABET)
 	$LetterSelection.distributeLetters(10)
@@ -39,4 +42,9 @@ func _on_button_pressed() -> void:
 	scoreWord($Panel/TextEdit.text)
 	if(WordTest.testBadWord($Panel/TextEdit.text)):
 		print($Panel/TextEdit.text + " is bad word")
+	pass # Replace with function body.
+
+
+func _on_button_2_pressed():
+	$LetterSelection.distributeLetters(10)
 	pass # Replace with function body.

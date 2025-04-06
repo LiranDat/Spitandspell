@@ -90,6 +90,7 @@ func removeAlbum(album : Album):
 			tween.set_ease(Tween.EASE_IN_OUT)
 			tween.set_trans(Tween.TRANS_ELASTIC)
 			tween.tween_property(albums[slot],"position",positions[slot],1.0)
+			await get_tree().create_timer(.1).timeout
 	print(albums)
 
 func addMoney(money:float):

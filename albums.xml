@@ -56,21 +56,21 @@
 		<id>8</id>
 		<title>X</title>
 		<description>X scores x3.</description>
-		<subdescript>Adds 10 X.</subdescript>
+		<subdescript>Adds 10 X. Increases X score by 1.</subdescript>
 		<price>10</price>
 	</album>
 	<album>
 		<id>9</id>
 		<title>Y</title>
 		<description>Y scores x3.</description>
-		<subdescript>Adds 10 Y.</subdescript>
+		<subdescript>Adds 10 Y. Increases Y score by 1.</subdescript>
 		<price>10</price>
 	</album>
 	<album>
 		<id>10</id>
 		<title>Z</title>
 		<description>Z scores x3.</description>
-		<subdescript>Adds 10 Z.</subdescript>
+		<subdescript>Adds 10 Z. Increases Z score by 1.</subdescript>
 		<price>10</price>
 	</album>		
 </root>

@@ -27,8 +27,8 @@ clip_text = true
 visible_characters = 1
 
 [node name="Score" type="Label" parent="Letter"]
-offset_left = 7.0
-offset_right = 11.0
+offset_left = 5.0
+offset_right = 13.0
 offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("4_kv2n4")
 text = "1"

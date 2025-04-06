@@ -53,6 +53,7 @@ stream = ExtResource("6_ow5a4")
 volume_db = -7.495
 
 [node name="info" type="RichTextLabel" parent="."]
+visible = false
 offset_left = 440.0
 offset_top = 478.0
 offset_right = 750.0
@@ -94,3 +95,5 @@ theme_override_fonts/font = ExtResource("7_hujxm")
 theme_override_font_sizes/font_size = 64
 text = "Restart?"
 script = ExtResource("9_b1x3f")
+
+[editable path="LetterSelection"]
